@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: "Hello World"
+---
+<h2>Todoist output</h2>
+<button type="button" onclick="getApi()">Get API</button>
+<button id="hello" type="button">Click</button>
+<script type="module">
+    import * as main from './js/main.js'
+    const btn = document.getElementById("hello");
+    btn.addEventListener("click", main.hi());
+</script>
