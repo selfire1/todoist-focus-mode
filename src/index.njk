@@ -4,13 +4,21 @@ title: "Hello World"
 ---
 <h2>Todoist output</h2>
 <code>{{ td }}</code>
-<button onclick="showProjects()">Show first task</button>
+<form action="#" class="form" onsubmit="showProjects()">
+    <div class="form-item">
+        <label for="api-input">Enter Todoist API key:</label>
+        <input type="text" minlength="40" maxlength="40" class="form-input" id="api-input" pattern="[a-zA-Z0-9]+">
+    </div>
+    <button type="submit" class="form-button">Show task</button>
+</form>
 <script>
     async function showProjects() {
+        const form = document.getElementById('api-input');
+        const apiKey = form.value;
         let url = "https://api.todoist.com/rest/v2/tasks";
         let response = await fetch(url, {
             headers: {
-                Authorization: "Bearer eed6c283388e7038ab617c946eb3a9da51888228"
+                Authorization: `Bearer ${apiKey}`
             }
         });
 
