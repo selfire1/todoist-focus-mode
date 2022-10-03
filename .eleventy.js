@@ -1,5 +1,5 @@
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("src/js/");
+    eleventyConfig.addPassthroughCopy("src/css/");
     eleventyConfig.addPassthroughCopy({ "./node_modules/@doist/todoist-api-typescript/dist/TodoistApi.js": "/js/TodoistApi.js" });
     return {
         dir: {
