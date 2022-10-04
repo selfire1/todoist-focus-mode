@@ -15,4 +15,5 @@ _site/
 .env
 
 # Local Netlify folder
-.netlify
+netlify/functions/serverless/**
+!netlify/functions/serverless/index.js
