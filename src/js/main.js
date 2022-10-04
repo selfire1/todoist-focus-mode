@@ -1,9 +1,12 @@
 
-const form = document.getElementById('api-form')
-console.log(form)
-form.addEventListener('submit', (event) => {
-    showFirstTask(document.getElementById('api-input').value);
-})
+// const form = document.getElementById('api-form')
+// console.log(form)
+// form.addEventListener('submit', (event) => {
+//     showFirstTask(document.getElementById('api-input').value);
+// })
+let key = document.currentScript.getAttribute('key');
+showFirstTask(key);
+
 function keyFromInput() {
     const input = document.getElementById('api-input');
     const apiKey = input.value;

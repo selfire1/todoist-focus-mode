@@ -1,0 +1,9 @@
+---
+layout: base.njk
+permalink:
+    serverless: /app/
+---
+{# Test: {{ eleventy.serverless.path.name }} #}
+Testing parameters: {{ eleventy.serverless.query.key}}
+{% set key = eleventy.serverless.query.key %}
+<script type="text/javascript" src="{{ '/js/main.js' | url }}" key="{{ key }}" defer></script>
