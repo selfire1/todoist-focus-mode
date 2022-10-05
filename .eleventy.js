@@ -1,7 +1,7 @@
 module.exports = function (eleventyConfig) {
     const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
     eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-        name: "serverless",
+        name: "dynamic",
         functionsDir: "./netlify/functions/"
     });
     eleventyConfig.addPassthroughCopy("src/css/");

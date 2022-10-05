@@ -1,0 +1,12 @@
+---
+permalink:
+  dynamic: "/secure/"
+secure:
+  unauthenticatedRedirect: "/"
+---
+{% if user %}
+You are logged in!
+<!-- Show Logout form -->
+{% else %}
+    <!-- Show Login form -->
+{% endif %}
