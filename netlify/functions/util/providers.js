@@ -86,7 +86,7 @@ const todoist = {
   authorizePath: 'https://todoist.com/oauth/authorize',
 
   /* User API endpoint */
-  userApi: "https://api.todoist.com/rest/v2/projects",
+  userApi: "https://api.todoist.com/rest/v2/tasks",
 
   /* Scope of access to request */
   scope: 'data:read_write',
