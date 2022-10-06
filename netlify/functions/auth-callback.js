@@ -33,10 +33,10 @@ exports.handler = async (event, context) => {
     // Take the grant code and exchange for an accessToken
     const accessToken = await oauth.authorizationCode.getToken({
       code: code,
-      // redirect_uri: config.redirect_uri,
+      redirect_uri: config.redirect_uri,
       client_id: config.clientId,
       client_secret: config.clientSecret
-    }, { json: true });
+    });
 
     const token = accessToken.token.access_token;
     console.log("[auth-callback]", { token });

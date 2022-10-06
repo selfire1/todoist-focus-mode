@@ -82,7 +82,7 @@ const todoist = {
 
   /* OAuth API endpoints */
   tokenHost: 'https://todoist.com',
-  tokenPath: 'https://todoist.com/oauth/access_token"',
+  tokenPath: 'https://todoist.com/oauth/access_token',
   authorizePath: 'https://todoist.com/oauth/authorize',
 
   /* User API endpoint */
