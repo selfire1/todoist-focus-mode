@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx @11ty/eleventy --serve"
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve",
+    "dev": "netlify dev"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,15 @@
   },
   "homepage": "https://github.com/selfire1/todoist-focus-mode#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2"
+    "netlify-cli": "^12.0.6"
   },
   "dependencies": {
     "@doist/todoist-api-typescript": "^2.0.4",
-    "@netlify/functions": "^1.2.0"
+    "@11ty/eleventy": "^1.0.2",
+    "@netlify/functions": "^1.2.0",
+    "cookie": "^0.4.1",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.3.0",
+    "simple-oauth2": "^4.2.0"
   }
 }
