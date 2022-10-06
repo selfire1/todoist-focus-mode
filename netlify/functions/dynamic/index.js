@@ -35,6 +35,7 @@ async function handler(event) {
     config: function (eleventyConfig) {
       if (user) {
         eleventyConfig.addGlobalData("user", user);
+        eleventyConfig.addGlobalData("token", authToken);
       }
 
       // Adds `secure` data to JSON output

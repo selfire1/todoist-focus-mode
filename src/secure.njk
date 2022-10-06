@@ -1,12 +1,49 @@
 ---
+layout: base.njk
 permalink:
   dynamic: "/secure/"
 secure:
   unauthenticatedRedirect: "/"
 ---
+<a href="/">Home</a>
 {% if user %}
-You are logged in!
-<!-- Show Logout form -->
+  <h2>You are logged in!</h2>
+  <button onlick="auth({{token}})" type="submit" class="form-button">Get task</button>
+  {# </form> #}
+  <script>
+    async function auth() {
+      let url = "https://api.todoist.com/rest/v2/tasks";
+      let response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${apiKey}`
+        }
+      });
+
+      if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let taskList = await response.json();
+        console.log(taskList)
+        let firstTask = taskList[0].content
+        const body = document.body;
+        const div = document.createElement('div')
+        div
+          .classList
+          .add("task-container")
+        body.append(div)
+        div.innerText = firstTask
+        console.log("Done!")
+      } else {
+        alert("HTTP-Error: " + response.status);
+      }
+    }
+  </script>
+  <!-- Show Logout form -->
+  {% include "logout.njk" %}
 {% else %}
-    <!-- Show Login form -->
+  <!-- Show Login form -->
 {% endif %}
+
+{{ token }}
+<pre>
+{{ user | dump(2) }}
+</pre>
