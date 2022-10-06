@@ -34,16 +34,18 @@ class OAuth {
       redirect_uri: `${SITE_URL}/.netlify/functions/auth-callback`,
     }
 
-    if(this.provider === "netlify") {
+    if (this.provider === "netlify") {
       Object.assign(cfg, providers.netlify);
-    } else if(this.provider === "github") {
+    } else if (this.provider === "github") {
       Object.assign(cfg, providers.github);
-    } else if(this.provider === "gitlab") {
+    } else if (this.provider === "gitlab") {
       Object.assign(cfg, providers.gitlab);
-    } else if(this.provider === "slack") {
+    } else if (this.provider === "slack") {
       Object.assign(cfg, providers.slack);
-    } else if(this.provider === "linkedin") {
+    } else if (this.provider === "linkedin") {
       Object.assign(cfg, providers.linkedin);
+    } else if (this.provider === "todoist") {
+      Object.assign(cfg, providers.todoist);
     } else {
       throw new Error("Invalid provider passed to OAuth. Currently only `netlify`, `github`, `gitlab`, `slack` or `linkedin` are supported.")
     }
@@ -59,10 +61,10 @@ class OAuth {
   }
 
   async getUser(token) {
-    if(!token) {
+    if (!token) {
       throw new Error("Missing authorization token.");
     }
-  
+
     const response = await fetch(this.config.userApi, {
       method: 'GET',
       headers: {
@@ -70,12 +72,12 @@ class OAuth {
         Authorization: `Bearer ${token}`
       }
     })
-  
-    console.log( "[auth] getUser response status", response.status );
+
+    console.log("[auth] getUser response status", response.status);
     if (response.status !== 200) {
       throw new Error(`Error ${await response.text()}`)
     }
-  
+
     const data = await response.json()
     return data
   }
@@ -91,7 +93,7 @@ function getCookie(name, value, expiration) {
   };
 
   // no strict cookies on localhost for local dev
-  if(SITE_URL.startsWith("http://localhost:8888")) {
+  if (SITE_URL.startsWith("http://localhost:8888")) {
     delete options.sameSite;
   }
 
@@ -99,7 +101,7 @@ function getCookie(name, value, expiration) {
 }
 
 function generateCsrfToken() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8) // eslint-disable-line
     return v.toString(16)
   })
@@ -108,10 +110,10 @@ function generateCsrfToken() {
 module.exports = {
   OAuth,
   tokens: {
-    encode: function(token) {
+    encode: function (token) {
       return Buffer.from(token, "utf8").toString("base64");
     },
-    decode: function(token) {
+    decode: function (token) {
       return Buffer.from(token, "base64").toString("utf8");
     }
   },

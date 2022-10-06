@@ -19,3 +19,5 @@ netlify/functions/serverless/**
 !netlify/functions/serverless/index.js
 netlify/functions/dynamic/**
 !netlify/functions/dynamic/index.js
+# Local Netlify folder
+.netlify

@@ -21,9 +21,9 @@ exports.handler = async (event, context) => {
   const state = querystring.parse(event.queryStringParameters.state)
 
   try {
-    // console.log( "[auth-callback] Cookies", event.headers.cookie );
+    console.log("[auth-callback] Cookies", event.headers.cookie);
     let cookies = cookie.parse(event.headers.cookie);
-    if(cookies._11ty_oauth_csrf !== state.csrf) {
+    if (cookies._11ty_oauth_csrf !== state.csrf) {
       throw new Error("Missing or invalid CSRF token.");
     }
 
@@ -33,18 +33,18 @@ exports.handler = async (event, context) => {
     // Take the grant code and exchange for an accessToken
     const accessToken = await oauth.authorizationCode.getToken({
       code: code,
-      redirect_uri: config.redirect_uri,
+      // redirect_uri: config.redirect_uri,
       client_id: config.clientId,
       client_secret: config.clientSecret
-    });
+    }, { json: true });
 
     const token = accessToken.token.access_token;
-    // console.log( "[auth-callback]", { token } );
+    console.log("[auth-callback]", { token });
 
     // The noop key here is to workaround Netlify keeping query params on redirects
     // https://answers.netlify.com/t/changes-to-redirects-with-query-string-parameters-are-coming/23436/11
     const URI = `${state.url}?noop`;
-    // console.log( "[auth-callback]", { URI });
+    console.log("[auth-callback]", { URI });
 
     /* Redirect user to authorizationURI */
     return {

@@ -40,7 +40,7 @@ const gitlab = {
 
   /* User API endpoint */
   userApi: "https://gitlab.com/api/v4/user",
-  
+
 }
 
 const slack = {
@@ -75,7 +75,25 @@ const linkedin = {
   userApi: "https://api.linkedin.com/v2/me?projection=(id,localizedFirstName,localizedLastName,profilePicture(displayImage~digitalmediaAsset:playableStreams))",
 }
 
+// https://developer.todoist.com/guides/#authorization
+const todoist = {
+  clientIdKey: "TODOIST_OAUTH_CLIENT_ID",
+  clientSecretKey: "TODOIST_OAUTH_CLIENT_SECRET",
+
+  /* OAuth API endpoints */
+  tokenHost: 'https://todoist.com',
+  tokenPath: 'https://todoist.com/oauth/access_token"',
+  authorizePath: 'https://todoist.com/oauth/authorize',
+
+  /* User API endpoint */
+  userApi: "https://api.todoist.com/rest/v2/projects",
+
+  /* Scope of access to request */
+  scope: 'data:read_write',
+};
+
 module.exports = {
+  todoist,
   netlify,
   github,
   gitlab,

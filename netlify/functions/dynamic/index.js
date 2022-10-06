@@ -9,12 +9,12 @@ require("./eleventy-bundler-modules.js");
 async function handler(event) {
   let authToken;
   let provider;
-  if(event.headers && event.headers.cookie) {
+  if (event.headers && event.headers.cookie) {
     let cookies = cookie.parse(event.headers.cookie);
-    if(cookies._11ty_oauth_token) {
+    if (cookies._11ty_oauth_token) {
       authToken = tokens.decode(cookies._11ty_oauth_token);
     }
-    if(cookies._11ty_oauth_provider) {
+    if (cookies._11ty_oauth_provider) {
       provider = cookies._11ty_oauth_provider;
     }
   }
@@ -24,7 +24,7 @@ async function handler(event) {
   try {
     let oauth = new OAuth(provider);
     user = await oauth.getUser(authToken);
-  } catch(e) {
+  } catch (e) {
     authError = e;
   }
 
@@ -32,8 +32,8 @@ async function handler(event) {
     path: event.path,
     query: event.queryStringParameters,
     functionsDir: "./netlify/functions/",
-    config: function(eleventyConfig) {
-      if(user) {
+    config: function (eleventyConfig) {
+      if (user) {
         eleventyConfig.addGlobalData("user", user);
       }
 
@@ -43,15 +43,15 @@ async function handler(event) {
   });
 
   try {
-    let [ page ] = await elev.getOutput();
+    let [page] = await elev.getOutput();
 
-    if("logout" in event.queryStringParameters) {
+    if ("logout" in event.queryStringParameters) {
       let redirectTarget = page.url; // default redirect to self
-      if(page.data.secure && page.data.secure.unauthenticatedRedirect) {
+      if (page.data.secure && page.data.secure.unauthenticatedRedirect) {
         redirectTarget = page.data.secure.unauthenticatedRedirect;
       }
 
-      // console.log( "Logging out" );
+      console.log("Logging out");
       return {
         statusCode: 302,
         headers: {
@@ -69,8 +69,8 @@ async function handler(event) {
     }
 
     // Secure pages
-    if(page.data.secure && authError) {
-      console.log("[serverless fn]", event.path, authToken, authError );
+    if (page.data.secure && authError) {
+      console.log("[serverless fn]", event.path, authToken, authError);
 
       // unauthenticated redirect
       return {
