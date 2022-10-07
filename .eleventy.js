@@ -1,4 +1,6 @@
 module.exports = function (eleventyConfig) {
+    const { EleventyRenderPlugin } = require("@11ty/eleventy");
+    eleventyConfig.addPlugin(EleventyRenderPlugin);
     const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
     eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
         name: "dynamic",
