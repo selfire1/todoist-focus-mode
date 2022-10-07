@@ -10,9 +10,7 @@ secure:
 {% if user %}
   {% set id = eleventy.serverless.query.id | int %}
   <p>Your next task</p>
-  {% renderTemplate "njk, md" %}
-  {{ tasks[id].content }}
-  {% endrenderTemplate %}
+  {{ tasks[0].content | markdownify | safe }}
   <a href="/secure/?id={{id - 1}}">Previous</a>
   <a href="/secure/?id={{id + 1}}">Next</a>
 

@@ -6,6 +6,12 @@ module.exports = function (eleventyConfig) {
         name: "dynamic",
         functionsDir: "./netlify/functions/"
     });
+    const markdownIt = require("markdown-it");
+    const markdownItRenderer = new markdownIt();
+
+    eleventyConfig.addFilter('markdownify', (str) => {
+        return markdownItRenderer.renderInline(str);
+    });
     eleventyConfig.addPassthroughCopy("src/css/");
     eleventyConfig.addPassthroughCopy("src/js/");
     return {
