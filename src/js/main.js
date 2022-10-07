@@ -1,4 +1,6 @@
-// window.addEventListener('DOMContentLoaded', () => {
+const token = document.getElementById('token').value;
+console.log(token);
+
 //     const token = document.getElementById('testing').dataset.token;
 //     // document.getElementById("testing").addEventListener("click", showTasks());
 //     console.log(token);

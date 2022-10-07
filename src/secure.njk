@@ -6,6 +6,7 @@ secure:
   unauthenticatedRedirect: "/"
 ---
 <a href="/">Home</a>
+<input id="token" type="hidden" name="securePath" value="{{token}}">
 {% set tasks = user | sort(false, true, content) %}
 {% if user %}
   {% set id = eleventy.serverless.query.id | int %}
