@@ -6,21 +6,21 @@ secure:
   unauthenticatedRedirect: "/"
 ---
 <a href="/">Home</a>
-<input id="token" type="hidden" name="securePath" value="{{token}}">
-{% set tasks = user | sort(false, true, content) %}
-{% if user %}
-  {% set id = eleventy.serverless.query.id | int %}
-  <p>Your next task</p>
-  {{ tasks[0].content | markdownify | safe }}
-  <a href="/secure/?id={{id - 1}}">Previous</a>
-  <a href="/secure/?id={{id + 1}}">Next</a>
+<input id="token" type="hidden" name="securePath" value="{{token}}" data-tasks="{{ user | dump }}">
+<div class="current-task" id="task-container"></div>
+<button id="btn-prev" disabled>Previous</button>
+<button id="btn-next">Next</button>
+{# {% if user %}
+    {% set id = eleventy.serverless.query.id | int %}
+    <p>Your next task</p>
+    {{ tasks[id].content | markdownify | safe }}
+    <a href="/secure/?id={{id - 1}}">Previous</a>
+    <a href="/secure/?id={{id + 1}}">Next</a>
 
-  <!-- Show Logout form -->
-  <hr>
-  {% include "logout.njk" %}
+    <!-- Show Logout form -->
+    <hr>
+    {% include "logout.njk" %}
 {% else %}
-  <!-- Show Login form -->
-  <a href="/">Login</a>
-{% endif %}
-
-{# {{ token }} #}
+    <!-- Show Login form -->
+    <a href="/">Login</a>
+{% endif %} #}
