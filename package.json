@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve",
+    "start": "npx @11ty/eleventy --serve --port=8081 --watch",
     "dev": "netlify dev"
   },
   "repository": {
