@@ -17,3 +17,6 @@ to = "/.netlify/functions/serverless"
 status = 200
 force = true
 _generated_by_eleventy_serverless = "serverless"
+
+[dev]
+targetPort = 8081
