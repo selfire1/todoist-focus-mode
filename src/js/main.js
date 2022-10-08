@@ -1,5 +1,7 @@
 // Variables and page setup
 const token = document.getElementById('token').value;
+const tasks = JSON.parse(document.getElementById('token').dataset.tasks);
+console.log(tasks);
 // Filters
 var params = JSON.parse(document.getElementById('token').dataset.params);
 if (params.hasOwnProperty("filter")) {

@@ -60,12 +60,12 @@ class OAuth {
     return cfg;
   }
 
-  async getUser(token) {
+  async getUser(token, link = this.config.userApi) {
     if (!token) {
       throw new Error("Missing authorization token.");
     }
 
-    const response = await fetch(this.config.userApi, {
+    const response = await fetch(link, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

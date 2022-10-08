@@ -19,11 +19,18 @@ async function handler(event) {
     }
   }
 
-  let user;
+  let tasks;
   let authError;
+  let projects;
   try {
     let oauth = new OAuth(provider);
-    user = await oauth.getUser(authToken);
+    console.log(event.queryStringParameters)
+    var link = "https://api.todoist.com/rest/v2/tasks"
+    if (event.queryStringParameters.hasOwnProperty("filter")) {
+      link += `?filter=${encodeURIComponent(event.queryStringParameters.filter)}`
+    }
+    tasks = await oauth.getUser(authToken, link);
+    projects = await oauth.getUser(authToken, "https://api.todoist.com/rest/v2/projects");
   } catch (e) {
     authError = e;
   }
@@ -33,8 +40,9 @@ async function handler(event) {
     query: event.queryStringParameters,
     functionsDir: "./netlify/functions/",
     config: function (eleventyConfig) {
-      if (user) {
-        eleventyConfig.addGlobalData("user", user);
+      if (tasks) {
+        eleventyConfig.addGlobalData("tasks", tasks);
+        eleventyConfig.addGlobalData("projects", projects);
         eleventyConfig.addGlobalData("token", authToken);
       }
 
