@@ -8,6 +8,10 @@ console.log(window.tasks)
 // Rendering Tasks Function
 function renderTask(i = window.index) {
     const div = document.getElementById('task-container');
+    if (!window.tasks[i]) {
+        div.innerText = "No tasks in this filter at the moment."
+        return
+    }
     const currentTask = window.tasks[i].content;
     div.innerText = currentTask;
 }
