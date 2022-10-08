@@ -84,6 +84,7 @@ for (const key in params) {
 }
 console.log(params);
 
+
 // for (let i = 0; i < params.length; i++) {
 //     params[i] = paramObject(params[i]);
 //     console.log(params[i])
@@ -103,7 +104,23 @@ console.log(params);
 //     return fromIds;
 // }
 
+// Get Projects
+async function getProjects(apiKey) {
+    let url = "https://api.todoist.com/rest/v2/projects";
+    let response = await fetch(url, {
+        headers: {
+            Authorization: `Bearer ${apiKey}`
+        }
+    });
 
+    if (response.ok) { // if HTTP-status is 200-299
+        // get the response body (the method explained below)
+        let projects = await response.json();
+        return projects;
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
 // ---------------------
 async function auth(apiKey) {
     let url = "https://api.todoist.com/rest/v2/tasks";
