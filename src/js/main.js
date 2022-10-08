@@ -43,6 +43,14 @@ function btnCounter(tasks, increase = true) {
     }
 }
 
+// Filters 2.0
+var params = JSON.parse(document.getElementById('token').dataset.params);
+if (params.hasOwnProperty("filter")) {
+    let filter = params.filter;
+    // console.log(filteredTasks(filter, token));
+    filteredTasks(filter, token).then(response => console.log(response));
+}
+
 // Closing a task
 async function taskDone(taskId, apiKey) {
     let url = `https://api.todoist.com/rest/v2/tasks/${taskId}/close`;
@@ -61,28 +69,45 @@ async function taskDone(taskId, apiKey) {
         alert("HTTP-Error: " + response.status);
     }
 }
-// --------------------
-// Filter logic
-var params = JSON.parse(document.getElementById('token').dataset.params);
-for (const key in params) {
-    if (Object.hasOwnProperty.call(params, key)) {
-        params[key] = params[key].split(";")
-        for (let i = 0; i < params[key].length; i++) {
-            let keys = params[key][i].split(":")[0];
-            let value = params[key][i].split(":")[1];
-            params[key][keys] = value;
-            // delete this
-            for (const k in params[key]) {
-                if (Object.hasOwnProperty.call(params[key], k)) {
-                    if (params[key][k].includes(",")) {
-                        params[key][k] = params[key][k].split(",")
-                    }
-                }
-            }
+// Get filtered tasks
+async function filteredTasks(filter, apiKey) {
+    let url = "https://api.todoist.com/rest/v2/tasks"
+    url += `?filter=${encodeURIComponent(filter)}`
+    let response = await fetch(url, {
+        headers: {
+            Authorization: `Bearer ${apiKey}`
         }
+    })
+    if (response.ok) {
+        let json = await response.json();
+        return json;
+    } else {
+        alert("HTTP-Error: " + response.status)
     }
 }
-console.log(params);
+
+// --------------------
+// Filter logic
+// var params = JSON.parse(document.getElementById('token').dataset.params);
+// for (const key in params) {
+//     if (Object.hasOwnProperty.call(params, key)) {
+//         params[key] = params[key].split(";")
+//         for (let i = 0; i < params[key].length; i++) {
+//             let keys = params[key][i].split(":")[0];
+//             let value = params[key][i].split(":")[1];
+//             params[key][keys] = value;
+//             // delete this
+//             for (const k in params[key]) {
+//                 if (Object.hasOwnProperty.call(params[key], k)) {
+//                     if (params[key][k].includes(",")) {
+//                         params[key][k] = params[key][k].split(",")
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// console.log(params);
 
 
 // for (let i = 0; i < params.length; i++) {
