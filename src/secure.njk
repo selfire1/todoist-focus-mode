@@ -9,6 +9,7 @@ secure:
 <input id="token" type="hidden" name="securePath" value="{{token}}" data-tasks="{{ user | dump }}">
 <div class="current-task" id="task-container"></div>
 <button id="btn-prev" disabled>Previous</button>
+<button id="btn-done">Done</button>
 <button id="btn-next">Next</button>
 {# {% if user %}
     {% set id = eleventy.serverless.query.id | int %}

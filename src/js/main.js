@@ -1,32 +1,36 @@
+// Variables and page setup
 const token = document.getElementById('token').value;
-const tasks = JSON.parse(document.getElementById('token').dataset.tasks);
-window.index = 21;
-renderTask(window.index)
-console.log(tasks.length)
-function renderTask(i) {
+window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
+window.index = 0;
+renderTask()
+console.log(window.tasks)
+
+// Rendering Tasks Function
+function renderTask(i = window.index) {
     const div = document.getElementById('task-container');
-    const currentTask = tasks[i].content;
-    console.log(currentTask);
-    div.innerText = tasks[i].content;
+    const currentTask = window.tasks[i].content;
+    div.innerText = currentTask;
 }
+// Buttons
 const btnNext = document.getElementById('btn-next');
-btnNext.addEventListener('click', function () {
-    btnCounter(tasks);
-})
+btnNext.addEventListener('click', function () { btnCounter(window.tasks); })
 
 const btnPrev = document.getElementById('btn-prev');
-btnPrev.addEventListener('click', function () {
-    btnCounter(tasks, false);
+btnPrev.addEventListener('click', function () { btnCounter(window.tasks, false); })
+
+const btnDone = document.getElementById('btn-done');
+btnDone.addEventListener('click', function () {
+    taskDone(window.tasks[window.index].id, token);
 })
 
+// Button Counter
 function btnCounter(tasks, increase = true) {
     if (increase) {
         window.index++
     } else {
         window.index--
     }
-    console.log(window.index);
-    renderTask(window.index);
+    renderTask();
     if (window.index <= 0) {
         btnPrev.disabled = true;
     } else {
@@ -36,6 +40,25 @@ function btnCounter(tasks, increase = true) {
         btnNext.disabled = true;
     } else {
         btnNext.disabled = false;
+    }
+}
+
+// Closing a task
+async function taskDone(taskId, apiKey) {
+    let url = `https://api.todoist.com/rest/v2/tasks/${taskId}/close`;
+    let response = await fetch(url, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${apiKey}`
+        }
+    })
+    if (response.ok) {
+        console.log("Completed task");
+        window.tasks.splice(window.index, 1)
+        window.index--
+        renderTask()
+    } else {
+        alert("HTTP-Error: " + response.status);
     }
 }
 // ---------------------
