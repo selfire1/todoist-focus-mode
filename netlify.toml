@@ -2,7 +2,7 @@
 for = "/*"
 
   [headers.values]
-  Content-Security-Policy = "default-src 'self';"
+  Content-Security-Policy = "default-src 'self' api.todoist.com;"
 
 [[redirects]]
 from = "/secure/"
