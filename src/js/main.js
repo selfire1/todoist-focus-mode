@@ -103,7 +103,7 @@ console.log(params);
 //     }
 //     return fromIds;
 // }
-
+getProjects(token);
 // Get Projects
 async function getProjects(apiKey) {
     let url = "https://api.todoist.com/rest/v2/projects";
@@ -111,15 +111,16 @@ async function getProjects(apiKey) {
         headers: {
             Authorization: `Bearer ${apiKey}`
         }
-    });
+    })
+        .then(response => response.json()).then(body => console.log(body));
 
-    if (response.ok) { // if HTTP-status is 200-299
-        // get the response body (the method explained below)
-        let projects = await response.json();
-        return projects;
-    } else {
-        alert("HTTP-Error: " + response.status);
-    }
+    // if (response.ok) { // if HTTP-status is 200-299
+    //     // get the response body (the method explained below)
+    //     let projects = await response.json();
+    //     return projects;
+    // } else {
+    //     alert("HTTP-Error: " + response.status);
+    // }
 }
 // ---------------------
 async function auth(apiKey) {
