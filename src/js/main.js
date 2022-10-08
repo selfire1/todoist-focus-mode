@@ -103,7 +103,13 @@ console.log(params);
 //     }
 //     return fromIds;
 // }
-getProjects(token);
+
+// I haven't fully figured out how `.fetch` works, so I use the below function to attach the returned data to the global variable
+function passOn(data) {
+    window.projects = data;
+    console.log(window.projects);
+}
+
 // Get Projects
 async function getProjects(apiKey) {
     let url = "https://api.todoist.com/rest/v2/projects";
@@ -112,7 +118,7 @@ async function getProjects(apiKey) {
             Authorization: `Bearer ${apiKey}`
         }
     })
-        .then(response => response.json()).then(body => console.log(body));
+        .then(response => response.json()).then(body => passOn(body));
 
     // if (response.ok) { // if HTTP-status is 200-299
     //     // get the response body (the method explained below)
