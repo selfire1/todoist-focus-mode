@@ -74,7 +74,6 @@ for (const key in params) {
             // delete this
             for (const k in params[key]) {
                 if (Object.hasOwnProperty.call(params[key], k)) {
-                    console.log(k);
                     if (params[key][k].includes(",")) {
                         params[key][k] = params[key][k].split(",")
                     }
