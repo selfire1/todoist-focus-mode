@@ -61,6 +61,50 @@ async function taskDone(taskId, apiKey) {
         alert("HTTP-Error: " + response.status);
     }
 }
+// --------------------
+// Filter logic
+var params = JSON.parse(document.getElementById('token').dataset.params);
+for (const key in params) {
+    if (Object.hasOwnProperty.call(params, key)) {
+        params[key] = params[key].split(";")
+        for (let i = 0; i < params[key].length; i++) {
+            let keys = params[key][i].split(":")[0];
+            let value = params[key][i].split(":")[1];
+            params[key][keys] = value;
+            // delete this
+            for (const k in params[key]) {
+                if (Object.hasOwnProperty.call(params[key], k)) {
+                    console.log(k);
+                    if (params[key][k].includes(",")) {
+                        params[key][k] = params[key][k].split(",")
+                    }
+                }
+            }
+        }
+    }
+}
+console.log(params);
+
+// for (let i = 0; i < params.length; i++) {
+//     params[i] = paramObject(params[i]);
+//     console.log(params[i])
+// }
+// let from = params.from;
+// console.log(from.split(";"))
+// console.log(paramObject(params.from))
+// Param object
+// function paramObject(parameters) {
+//     let fromIds = {};
+//     for (let i = 0; i < parameters.length; i++) {
+//         let key = parameters[i].split(";")[0];
+//         let value = parameters[i].split(":")[1];
+//         value = value.split(',');
+//         fromIds[key] = value;
+//     }
+//     return fromIds;
+// }
+
+
 // ---------------------
 async function auth(apiKey) {
     let url = "https://api.todoist.com/rest/v2/tasks";

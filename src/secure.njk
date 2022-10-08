@@ -6,7 +6,7 @@ secure:
   unauthenticatedRedirect: "/"
 ---
 <a href="/">Home</a>
-<input id="token" type="hidden" name="securePath" value="{{token}}" data-tasks="{{ user | dump }}">
+<input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ user | dump }}">
 <div class="current-task" id="task-container"></div>
 <button id="btn-prev" disabled>Previous</button>
 <button id="btn-done">Done</button>
