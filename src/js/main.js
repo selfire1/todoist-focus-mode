@@ -1,18 +1,6 @@
 // Variables and page setup
 const token = document.getElementById('token').value;
-const tasks = JSON.parse(document.getElementById('token').dataset.tasks);
-console.log(tasks);
-// Filters
-var params = JSON.parse(document.getElementById('token').dataset.params);
-if (params.hasOwnProperty("filter")) {
-    let filter = params.filter;
-    filteredTasks(filter, token).then(response => window.tasks = response);
-    console.log(window.tasks)
-    console.log("Fetched tasks from filter")
-} else {
-    window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
-    console.log("Got tasks from serverless")
-}
+window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
 window.index = 0;
 renderTask()
 console.log(window.tasks)
@@ -52,41 +40,5 @@ function btnCounter(tasks, increase = true) {
         btnNext.disabled = true;
     } else {
         btnNext.disabled = false;
-    }
-}
-
-
-// Closing a task
-async function taskDone(taskId, apiKey) {
-    let url = `https://api.todoist.com/rest/v2/tasks/${taskId}/close`;
-    let response = await fetch(url, {
-        method: "POST",
-        headers: {
-            Authorization: `Bearer ${apiKey}`
-        }
-    })
-    if (response.ok) {
-        console.log("Completed task");
-        window.tasks.splice(window.index, 1)
-        window.index--
-        renderTask()
-    } else {
-        alert("HTTP-Error: " + response.status);
-    }
-}
-// Get filtered tasks
-async function filteredTasks(filter, apiKey) {
-    let url = "https://api.todoist.com/rest/v2/tasks"
-    url += `?filter=${encodeURIComponent(filter)}`
-    let response = await fetch(url, {
-        headers: {
-            Authorization: `Bearer ${apiKey}`
-        }
-    })
-    if (response.ok) {
-        let json = await response.json();
-        return json;
-    } else {
-        alert("HTTP-Error: " + response.status)
     }
 }
