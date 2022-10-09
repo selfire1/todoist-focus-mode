@@ -49,34 +49,62 @@ function btnCounter(tasks, increase = true) {
 // Parse Todoist's Markdown
 // Since it is fairly basic, the function is implemented rather than attaching a whole library
 
-mdToHtml("**DO** this thing **important** and *italic*")
-function mdToHtml(str) {
-    let span = document.createElement("span");
-    let text = str;
-    const regBold = new RegExp("[\*_]{2}(.*)[\*_]{2}", "g");
-    const regB = new RegExp("([\*_]{2}(?:.*?)[\*_]{2})", "g")
-    const regItalic = new RegExp("[\*_](.*)[\*_]", "g");
-    const regLink = new RegExp("\[(.*)\]\(.*\)", "g");
+let testStr = "This is **important** and *italic*";
 
-    let otherT = text.split(regB);
-    console.log(otherT)
+// var md = require('markdown-it')();
+// var result = md.renderInline(testStr);
 
-    // Example for bold
-    let taskText = {};
-    otherT.forEach(element => {
-        let e = element.trim();
-        if (e[0] == "*") {
-            taskText[e.slic(2, -2)] = "bold";
-        } else if (e != "") {
-            taskText[e] = "normal";
-        }
-    });
-    console.log(taskText);
+// var md = require('markdown-it')();
+// var result = md.render(testStr);
 
-    const matches = text.matchAll(regBold);
-    for (const match of matches) {
-        const cg1 = match[1];
-        const cg2 = match[2];
-    }
+var md = window.markdownit();
+var result = md.render(testStr);
 
-}
+console.log(result);
+
+
+// function mdToHtmlElement(str) {
+//     let span = document.createElement("span");
+//     let taskObj = {};
+//     let text = str;
+//     const regBI = new RegExp("([\*_]{3}(?:.*?)[\*_]{3})", "g")
+//     const regB = new RegExp("([\*_]{2}(?:.*?)[\*_]{2})", "g")
+//     const regI = new RegExp("([\*_](?:.*?)[\*_])", "g")
+//     const regLink = new RegExp("\[(.*)\]\(.*\)", "g");
+//     const regArr = [regBI, regB, regI]
+//     const includeArr = [3, 2, 1]
+//     const nameArr = ["bold-italic", "bold", "italic"]
+//     let i = 0;
+//     regArr.forEach(regex => {
+//         let textArr = text.split(regex);
+//         textArr.forEach(element => {
+//             let e = element;
+//             let asterisks = "*".repeat(includeArr[i]);
+//             let underscores = "_".repeat(includeArr[i]);
+//             console.log(asterisks)
+//             if (e.includes(asterisks) || e.includes(underscores)) {
+//                 e = e.replaceAll(asterisks);
+//                 e = e.replaceAll(underscores);
+//                 taskObj[e] = nameArr[i];
+//             } else if (e != "") {
+//                 taskObj[e] = "normal";
+//             }
+//         });
+//         i++
+//     });
+
+    // console.log(otherT)
+
+    // // Example for bold
+    // let otherT = text.split(regB);
+    // otherT.forEach(element => {
+    //     let e = element.trim();
+    //     if (e[0] == "*") {
+    //         taskObj[e.slic(2, -2)] = "bold";
+    //     } else if (e != "") {
+    //         taskObj[e] = "normal";
+    //     }
+    // });
+
+//     return taskObj;
+// }

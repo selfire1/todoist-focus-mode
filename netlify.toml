@@ -2,7 +2,7 @@
 for = "/*"
 
   [headers.values]
-  Content-Security-Policy = "default-src 'self' api.todoist.com;"
+  Content-Security-Policy = "default-src 'self' api.todoist.com https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js;"
 
 [[redirects]]
 from = "/secure/"
