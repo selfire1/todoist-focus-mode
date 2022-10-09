@@ -1,9 +1,11 @@
 // Variables and page setup
 const token = document.getElementById('token').value;
+const params = JSON.parse(document.getElementById('token').dataset.params);
+let filterQuery = params.filter;
+console.log(filterQuery);
 window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
 window.index = 0;
 renderTask()
-console.log(window.tasks)
 
 // Rendering Tasks Function
 function renderTask(i = window.index) {

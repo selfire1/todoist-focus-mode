@@ -6,12 +6,22 @@ secure:
   unauthenticatedRedirect: "/"
 ---
 <a href="/">Home</a>
+{# Hidden input #}
 <input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | dump }}">
+{# Current tasks #}
 <div class="current-task" id="task-container"></div>
+{# Buttons #}
 <button id="btn-prev" disabled>Previous</button>
 <button id="btn-done">Done</button>
 <button id="btn-next">Next</button>
 
+{# Enter filter #}
+<form action="">
+  <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
+  </label>
+  <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
+  <button type="submit" id="btn-filter">Open</button>
+</form>
 {# {% if user %}
     {% set id = eleventy.serverless.query.id | int %}
     <p>Your next task</p>
