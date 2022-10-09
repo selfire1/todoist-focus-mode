@@ -46,3 +46,42 @@ function btnCounter(tasks, increase = true) {
         btnNext.disabled = false;
     }
 }
+// Parse Todoist's Markdown
+// Since it is fairly basic, the function is implemented rather than attaching a whole library
+
+mdToHtml("**DO** this thing **important**")
+function mdToHtml(str) {
+    let span = document.createElement("span");
+    let text = str;
+    const regBold = new RegExp("[\*_]{2}(.*)[\*_]{2}", "g");
+    const regB = new RegExp("([\*_]{2}(?:.*?)[\*_]{2})", "g")
+    const regItalic = new RegExp("[\*_](.*)[\*_]", "g");
+    const regLink = new RegExp("\[(.*)\]\(.*\)", "g");
+
+    let otherT = text.split(regB);
+
+    // Example for bold
+    otherT.forEach(element => {
+        let e = element.trim();
+        if (regBold.test(e)) {
+            const strong = document.createElement("strong")
+            // remove the two surrounding tokens
+            strong.innerText = e.slice(2, -2);
+            span.append(strong);
+        } else if (e != "") {
+            const p = document.createElement("span")
+            p.innerText = e;
+            span.append(p);
+            // span.append(e)
+        }
+    });
+    const body = document.body;
+    body.append(span);
+
+    const matches = text.matchAll(regBold);
+    for (const match of matches) {
+        const cg1 = match[1];
+        const cg2 = match[2];
+    }
+
+}
