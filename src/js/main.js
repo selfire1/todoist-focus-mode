@@ -7,6 +7,25 @@ window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
 window.index = 0;
 renderTask()
 
+console.log(window.tasks);
+
+// Sort by multiple values
+// Note: for desc just use .reverse protoype
+let array = ["priority", "project_id", "content"];
+window.tasks = window.tasks.sort((a, b) => {
+    for (let i = 0; i < array.length; i++) {
+        const parameter = array[i];
+        if (a[parameter] < b[parameter]) {
+            return -1;
+        }
+        if (a[parameter] > b[parameter]) {
+            return 1;
+        }
+    }
+    return 0;
+})
+
+
 // Rendering Tasks Function
 function renderTask(i = window.index) {
     const div = document.getElementById('task-container');
