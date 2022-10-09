@@ -13,7 +13,7 @@ function renderTask(i = window.index) {
         return
     }
     const currentTask = window.tasks[i].content;
-    div.innerText = currentTask;
+    div.setHTML(mdToHtmlElement(currentTask));
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
@@ -57,11 +57,13 @@ let testStr = "This is **important** and *italic*";
 // var md = require('markdown-it')();
 // var result = md.render(testStr);
 
-var md = window.markdownit();
-var result = md.render(testStr);
-
-console.log(result);
-
+function mdToHtmlElement(str) {
+    var md = window.markdownit({
+        typographer: true
+    });
+    var result = md.render(str);
+    return result;
+}
 
 // function mdToHtmlElement(str) {
 //     let span = document.createElement("span");
