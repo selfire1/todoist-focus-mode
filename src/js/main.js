@@ -49,7 +49,7 @@ function btnCounter(tasks, increase = true) {
 // Parse Todoist's Markdown
 // Since it is fairly basic, the function is implemented rather than attaching a whole library
 
-mdToHtml("**DO** this thing **important**")
+mdToHtml("**DO** this thing **important** and *italic*")
 function mdToHtml(str) {
     let span = document.createElement("span");
     let text = str;
@@ -59,24 +59,19 @@ function mdToHtml(str) {
     const regLink = new RegExp("\[(.*)\]\(.*\)", "g");
 
     let otherT = text.split(regB);
+    console.log(otherT)
 
     // Example for bold
+    let taskText = {};
     otherT.forEach(element => {
         let e = element.trim();
-        if (regBold.test(e)) {
-            const strong = document.createElement("strong")
-            // remove the two surrounding tokens
-            strong.innerText = e.slice(2, -2);
-            span.append(strong);
+        if (e[0] == "*") {
+            taskText[e.slic(2, -2)] = "bold";
         } else if (e != "") {
-            const p = document.createElement("span")
-            p.innerText = e;
-            span.append(p);
-            // span.append(e)
+            taskText[e] = "normal";
         }
     });
-    const body = document.body;
-    body.append(span);
+    console.log(taskText);
 
     const matches = text.matchAll(regBold);
     for (const match of matches) {
