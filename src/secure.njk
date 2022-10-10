@@ -8,21 +8,32 @@ secure:
 <a href="/">Home</a>
 {# Hidden input #}
 <input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
+{# Notification calls #}
+<div class="notify" id="notify"></div>
 
+{# Action buttons #}
+<div class="action-buttons">
+    <button class="btn-copy" id="btn-copy-url">Copy Link</button>
+    <button class="btn-open-td" id="btn-open-td">Open in Todoist</button>
+</div>
 {# Current tasks #}
-<div class="task-fm" id="task-fm"></div>
-<div class="current-task" id="task-container"></div>
+<div class="task">
+    <div class="task-fm" id="task-fm"></div>
+    <div class="current-task" id="task-container"></div>
+</div>
 {# Buttons #}
-<button id="btn-prev" disabled>Previous</button>
-<button id="btn-done">Done</button>
-<button id="btn-next">Next</button>
+<div class="task-buttons">
+    <button id="btn-prev" disabled>Previous</button>
+    <button id="btn-done">Done</button>
+    <button id="btn-next">Next</button>
+</div>
 
 {# Enter filter #}
 <form action="">
-  <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
-  </label>
-  <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
-  <button type="submit" id="btn-filter">Open</button>
+    <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
+    </label>
+    <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
+    <button type="submit" id="btn-filter">Open</button>
 </form>
 {# {% if user %}
     {% set id = eleventy.serverless.query.id | int %}
