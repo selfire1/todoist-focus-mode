@@ -70,6 +70,7 @@ btnPrev.addEventListener('click', function () { btnCounter(window.tasks, false);
 const btnDone = document.getElementById('btn-done');
 btnDone.addEventListener('click', function () {
     taskDone(window.tasks[window.index].id, token);
+    notify("☑ Marked task as done")
 })
 
 // Button Counter
@@ -90,6 +91,66 @@ function btnCounter(tasks, increase = true) {
     } else {
         btnNext.disabled = false;
     }
+}
+// Action buttons
+const btnCopy = document.getElementById('btn-copy-url');
+btnCopy.addEventListener('click', function () {
+    let url = document.location.href;
+    navigator.clipboard.writeText(url).then(function () {
+        console.log('Copied!');
+        notify("📋 Copied link to clipboard");
+    }, function () {
+        console.log('Copy error')
+    });
+
+})
+
+const btnUrl = document.getElementById('btn-open-td');
+btnUrl.addEventListener('click', function () {
+    const isMobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
+    if (isMobile) {
+        // On mobile, open into the app
+        let url = "todoist://task?id=" + window.tasks[window.index].id;
+        window.open(url, "todoist tab")
+    } else {
+        window.open(window.tasks[window.index].url, "todoist tab")
+    }
+})
+function notify(str) {
+    const notifyBanner = document.getElementById('notify');
+    notifyBanner.innerText = str;
+    unfade(notifyBanner);
+    setTimeout(() => {
+        fade(notifyBanner);
+    }, 3000)
+
+}
+
+// Fade out element
+function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1) {
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+}
+// Fade in element
+function unfade(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1) {
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.15;
+    }, 10);
 }
 // Parse Todoist's Markdown
 // Since it is fairly basic, the function is implemented rather than attaching a whole library
