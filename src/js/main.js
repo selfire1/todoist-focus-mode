@@ -7,25 +7,48 @@ window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
 window.index = 0;
 renderTask()
 
-console.log(window.tasks);
 
 // Sort by multiple values
 // Note: for desc just use .reverse protoype
-let array = ["priority", "project_id", "content"];
+let array = ["prio"];
 window.tasks = window.tasks.sort((a, b) => {
     for (let i = 0; i < array.length; i++) {
         const parameter = array[i];
-        if (a[parameter] < b[parameter]) {
-            return -1;
+        let compA;
+        let compB;
+        switch (parameter) {
+            case "prio":
+                compA = a.priority
+                compB = b.priority
+                if (compB < compA) { return -1; }
+                if (compB > compA) { return 1; }
+                return 0;
+                break;
+            case "proj":
+                compA = a.project_id;
+                compB = b.project_id;
+            case "due":
+                console.log("comparing date")
+                compA = new Date(a.due?.date) || 0;
+                compB = new Date(b.due?.date) || 0;
+                return (compA - compB);
+            case "alph":
+                compA = a.content;
+                compB = b.content;
+            default:
+                break;
         }
-        if (a[parameter] > b[parameter]) {
-            return 1;
-        }
+        if (compA < compB) { return -1; }
+        if (compA > compB) { return 1; }
     }
     return 0;
 })
 
 
+console.log(window.tasks);
+window.tasks.forEach(element => {
+    console.log(element.content || "none")
+});
 // Rendering Tasks Function
 function renderTask(i = window.index) {
     const div = document.getElementById('task-container');

@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("customSort", function (tasksArr, queryStr) {
         // No sort is set
         if (!queryStr) { return tasksArr }
+        let tasks = tasksArr;
         // Split sort parameters by ","
         let queryArr = queryStr.split(",")
         // Construct an object based on the query
@@ -15,9 +16,61 @@ module.exports = function (eleventyConfig) {
             let value = element.split(":")[1]
             queryObj[key] = value;
         });
-        return queryObj;
-        console.log(tasksObj)
-        console.log(queryStr)
+        // return queryObj;
+        tasks = tasks.sort((a, b) => {
+            for (const parameter in queryObj) {
+                if (Object.hasOwnProperty.call(queryObj, parameter)) {
+                    let asc;
+                    // Check if query is ascending or descending
+                    queryObj[parameter] == "asc" ? asc = true : asc = false;
+                    let compA;
+                    let compB;
+                    switch (parameter) {
+                        case "prio":
+                            compA = a.priority
+                            compB = b.priority
+                            if (!asc) {
+                                // Reverse the order on a descending call
+                                if (compB < compA) { return 1; }
+                                if (compB > compA) { return -1; }
+                                return 0;
+                            }
+                            if (compB < compA) { return -1; }
+                            if (compB > compA) { return 1; }
+                            return 0;
+                            break;
+                        case "proj":
+                            compA = a.project_id;
+                            compB = b.project_id;
+                        case "due":
+                            console.log("comparing date")
+                            compA = new Date(a.due?.date) || 0;
+                            compB = new Date(b.due?.date) || 0;
+                            if (!asc) {
+                                // reverse the sort on a descending call
+                                return (compB - compA);
+                            }
+                            return (compA - compB);
+                        case "alph":
+                            compA = a.content;
+                            compB = b.content;
+                        default:
+                            break;
+                    }
+                    if (!asc) {
+                        if (compA < compB) { return 1; }
+                        if (compA > compB) { return -1; }
+                        return 0;
+                    }
+                }
+                if (compA < compB) { return -1; }
+                if (compA > compB) { return 1; }
+                return 0;
+            }
+        }
+
+        )
+        return tasks;
     })
     // Filters
     const markdownIt = require("markdown-it");
