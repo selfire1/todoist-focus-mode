@@ -7,9 +7,10 @@ secure:
 ---
 <a href="/">Home</a>
 {# Hidden input #}
-<input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}">
+<input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
 
 {# Current tasks #}
+<div class="task-fm" id="task-fm"></div>
 <div class="current-task" id="task-container"></div>
 {# Buttons #}
 <button id="btn-prev" disabled>Previous</button>

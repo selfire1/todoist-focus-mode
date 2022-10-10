@@ -1,9 +1,10 @@
 // Variables and page setup
-const token = document.getElementById('token').value;
-const params = JSON.parse(document.getElementById('token').dataset.params);
+const infoElement = document.getElementById('token');
+const token = infoElement.value;
+const params = JSON.parse(infoElement.dataset.params);
+const projects = JSON.parse(infoElement.dataset.projects);
 let filterQuery = params.filter;
-console.log(filterQuery);
-window.tasks = JSON.parse(document.getElementById('token').dataset.tasks);
+window.tasks = JSON.parse(infoElement.dataset.tasks);
 window.index = 0;
 renderTask()
 
@@ -28,7 +29,6 @@ window.tasks = window.tasks.sort((a, b) => {
                 compA = a.project_id;
                 compB = b.project_id;
             case "due":
-                console.log("comparing date")
                 compA = new Date(a.due?.date) || 0;
                 compB = new Date(b.due?.date) || 0;
                 return (compA - compB);
@@ -45,10 +45,9 @@ window.tasks = window.tasks.sort((a, b) => {
 })
 
 
+console.log(projects);
 console.log(window.tasks);
-window.tasks.forEach(element => {
-    console.log(element.content || "none")
-});
+
 // Rendering Tasks Function
 function renderTask(i = window.index) {
     const div = document.getElementById('task-container');
@@ -58,6 +57,8 @@ function renderTask(i = window.index) {
     }
     const currentTask = window.tasks[i].content;
     div.setHTML(mdToHtmlElement(currentTask));
+    const fm = document.getElementById('task-fm');
+    fm.setHTML(findProject(window.tasks[i].project_id, projects))
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
@@ -107,6 +108,12 @@ function mdToHtmlElement(str) {
     });
     var result = md.render(str);
     return result;
+}
+
+function findProject(tasksProjectID, projects) {
+    const isProjectId = (element) => element.id == tasksProjectID;
+    const projectIndex = projects.findIndex(isProjectId)
+    return projects[projectIndex].name;
 }
 
 // function mdToHtmlElement(str) {
