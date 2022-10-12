@@ -75,7 +75,7 @@ select {
 
 /* ---- END RESET ---- */
 html {
-    font-family: system-ui, sans;
+    font-family: 'Figtree', sans-serif, system-ui, sans;
     color-scheme: light dark;
 }
 
