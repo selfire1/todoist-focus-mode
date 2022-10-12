@@ -6,6 +6,8 @@ secure:
   unauthenticatedRedirect: "/"
 ---
 <a href="/">Home</a>
+<a href="/">Help</a>
+<a href="/">About</a>
 {# Hidden input #}
 <input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
 {# Notification calls #}
