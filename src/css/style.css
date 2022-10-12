@@ -97,6 +97,24 @@ html {
     font-family: 'Figtree', sans-serif, system-ui, sans;
     color-scheme: light dark;
 }
+.container {
+    --max-width: 1110px;
+    --padding: 1rem;
+    width: min(var(--max-width), 100% - (var(--padding) * 2));
+    margin-inline: auto;
+}
+/* Navigation */
+.navigation {
+display: flex;
+justify-content: flex-end;
+gap: 1rem;
+margin: 0;
+padding: 0;
+}
+.li-home {
+    margin-right: auto;
+}
+
 
 .task-container {
     padding: 10px;

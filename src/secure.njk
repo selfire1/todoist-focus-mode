@@ -5,38 +5,57 @@ permalink:
 secure:
   unauthenticatedRedirect: "/"
 ---
-<a href="/">Home</a>
-<a href="/">Help</a>
-<a href="/">About</a>
-{# Hidden input #}
-<input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
-{# Notification calls #}
-<div class="notify" id="notify"></div>
+<div class="container">
+  {# Navigation #}
 
-{# Current task #}
-<div class="task-container">
-  <div class="task-context">
-    <div class="task-project" id="task-project"></div>
-    <button class="btn-open-td" id="btn-open-td">Open in Todoist</button>
-  </div>
-  <div class="current-task" id="task-current"></div>
-  {# Buttons #}
-  <div class="task-buttons">
-    <button id="btn-prev" disabled>Previous</button>
-    <button id="btn-done">Done</button>
-    <button id="btn-next">Next</button>
-  </div>
-</div>
+  <nav aria-label="Main">
+    <ul role="list" class="navigation">
+      <li class="li-home">
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/">Help</a>
+      </li>
+      <li>
+        <a href="/">About</a>
+      </li>
+      <li>
+        {% include "logout.njk" %}
+      </li>
+    </ul>
+  </nav>
 
-{# Enter filter #}
-<div class="focusmode-actions">
-  <form action="">
-    <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
-    </label>
-    <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
-    <button type="submit" id="btn-filter">Open</button>
-  </form>
-  <button class="btn-copy" id="btn-copy-url">Copy Link to this view</button>
+  {# Hidden input #}
+  <input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
+
+  {# Notification calls #}
+  <div class="notify" id="notify"></div>
+
+  {# Current task #}
+  <div class="task-container">
+    <div class="task-context">
+      <div class="task-project" id="task-project"></div>
+      <button class="btn-open-td" id="btn-open-td">Open in Todoist</button>
+    </div>
+    <div class="current-task" id="task-current"></div>
+    {# Buttons #}
+    <div class="task-buttons">
+      <button id="btn-prev" disabled>Previous</button>
+      <button id="btn-done">Done</button>
+      <button id="btn-next">Next</button>
+    </div>
+  </div>
+
+  {# Enter filter #}
+  <div class="focusmode-actions">
+    <form action="">
+      <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
+      </label>
+      <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
+      <button type="submit" id="btn-filter">Open</button>
+    </form>
+    <button class="btn-copy" id="btn-copy-url">Copy Link to this view</button>
+  </div>
 </div>
 {# {% if user %}
     {% set id = eleventy.serverless.query.id | int %}
@@ -47,7 +66,6 @@ secure:
 
     <!-- Show Logout form -->
     <hr>
-    {% include "logout.njk" %}
 {% else %}
     <!-- Show Login form -->
     <a href="/">Login</a>
