@@ -11,30 +11,31 @@ secure:
 {# Notification calls #}
 <div class="notify" id="notify"></div>
 
-{# Action buttons #}
-<div class="action-buttons">
-    <button class="btn-copy" id="btn-copy-url">Copy Link</button>
+{# Current task #}
+<div class="task-container">
+  <div class="task-context">
+    <div class="task-project" id="task-project"></div>
     <button class="btn-open-td" id="btn-open-td">Open in Todoist</button>
-</div>
-{# Current tasks #}
-<div class="task">
-    <div class="task-fm" id="task-fm"></div>
-    <div class="current-task" id="task-container"></div>
-</div>
-{# Buttons #}
-<div class="task-buttons">
+  </div>
+  <div class="current-task" id="task-current"></div>
+  {# Buttons #}
+  <div class="task-buttons">
     <button id="btn-prev" disabled>Previous</button>
     <button id="btn-done">Done</button>
     <button id="btn-next">Next</button>
+  </div>
 </div>
 
 {# Enter filter #}
-<form action="">
+<div class="focusmode-actions">
+  <form action="">
     <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
     </label>
     <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
     <button type="submit" id="btn-filter">Open</button>
-</form>
+  </form>
+  <button class="btn-copy" id="btn-copy-url">Copy Link to this view</button>
+</div>
 {# {% if user %}
     {% set id = eleventy.serverless.query.id | int %}
     <p>Your next task</p>

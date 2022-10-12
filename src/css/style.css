@@ -85,6 +85,10 @@ html {
     border-radius: 5px;
     margin-top: 20px;
 }
+.task-context {
+    display: flex;
+    gap: 10px;
+}
 .notify {
     display: none;
     background-color: black;

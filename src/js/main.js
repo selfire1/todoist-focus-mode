@@ -50,14 +50,14 @@ console.log(window.tasks);
 
 // Rendering Tasks Function
 function renderTask(i = window.index) {
-    const div = document.getElementById('task-container');
+    const div = document.getElementById('task-current');
     if (!window.tasks[i]) {
         div.innerText = "No tasks in this filter at the moment."
         return
     }
     const currentTask = window.tasks[i].content;
     div.setHTML(mdToHtmlElement(currentTask));
-    const fm = document.getElementById('task-fm');
+    const fm = document.getElementById('task-project');
     fm.setHTML(findProject(window.tasks[i].project_id, projects))
 }
 // Buttons
