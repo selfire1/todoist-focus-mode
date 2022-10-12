@@ -74,6 +74,25 @@ select {
 }
 
 /* ---- END RESET ---- */
+/* Variables */
+:root {
+    --clr-content-tertiary: #999999;
+    --clr-content-secondary: #707070;
+    --clr-content-primary: #1F1F1F;
+    --clr-accent: #E44232;
+    --clr-inverse-primary: #FFFFFF;
+    --divider-primary: #C4C7C8;
+
+    --clr-surface: #FFF9F3;
+    --clr-bg-default: #fff;
+    --clr-bg-aside: #fafafa;
+    --clr-bg-highlight: #f2f2f2;
+    --clr-bg-selected: #e6e6e6;
+
+
+    --border-radius-small: 5px;
+    --border-radius-large: 10px;
+}
 html {
     font-family: 'Figtree', sans-serif, system-ui, sans;
     color-scheme: light dark;
@@ -94,10 +113,10 @@ html {
     background-color: black;
     color: white;
     border-radius: 5px;
-position: fixed;
-right: 0;
-top: 0;
-box-shadow: 0 0 3px black;
-padding: 3px 5px;
-margin: 5px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    box-shadow: 0 0 3px black;
+    padding: 3px 5px;
+    margin: 5px;
 }
