@@ -121,11 +121,6 @@ button {
     border-radius: var(--border-radius-small);
 }
 
-button:hover {
-    background-color: var(--clr-bg-highlight);
-    color: var(--clr-content-primary);
-}
-
 strong {
     font-weight: var(--fw-600);
 }
@@ -207,7 +202,7 @@ padding-top: 10px;
 /* Task buttons */
 .task-buttons {
     display: flex;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-large);
 }
 :is(.btn-prev, .btn-done, .btn-next) {
     border-radius: var(--border-radius-small);
@@ -270,4 +265,16 @@ padding-top: 10px;
     box-shadow: 0 0 3px black;
     padding: 3px 5px;
     margin: 5px;
+}
+
+/* Hover class (toggled also on keydown from JS */
+button:hover,
+.hover {
+    background-color: var(--clr-bg-highlight);
+    color: var(--clr-content-primary);
+}
+button:active,
+.hover {
+    transform: scale(.97);
+    transition: transform .2s cubic-bezier(.02, 1.505, .745, 1.235)
 }

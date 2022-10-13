@@ -73,6 +73,35 @@ btnDone.addEventListener('click', function () {
     notify("☑ Marked task as done")
 })
 
+// Keypress navigation
+document.onkeydown = function (e) {
+    switch (e.keyCode) {
+        case 229:
+            break;
+        case 37:
+            // Left -> Previous
+            if (window.index <= 0) {
+                break
+            }
+            btnCounter(window.tasks, false)
+            const btnPrev = document.getElementById('btn-prev');
+            btnPrev.classList.add('hover');
+            setTimeout(() => { btnPrev.classList.remove('hover') }, 100)
+            break;
+        case 39:
+            // Right -> Next
+            if (window.index >= window.tasks.length - 1) {
+                break;
+            }
+            btnCounter(window.tasks)
+            const btnNext = document.getElementById('btn-next');
+            btnNext.classList.add('hover');
+            setTimeout(() => { btnNext.classList.remove('hover') }, 100)
+            break;
+    }
+};
+
+
 // Button Counter
 function btnCounter(tasks, increase = true) {
     if (increase) {
