@@ -76,6 +76,8 @@ select {
 /* ---- END RESET ---- */
 /* Variables */
 :root {
+    --max-width: 1110px;
+
     --clr-content-tertiary: #999999;
     --clr-content-secondary: #707070;
     --clr-content-primary: #1F1F1F;
@@ -134,7 +136,6 @@ strong {
 
 .container {
     display: grid;
-    --max-width: 1110px;
     --padding: var(--spacing-large);
     width: min(var(--max-width), 100% - (var(--padding) * 2));
     margin-inline: auto;
@@ -206,7 +207,7 @@ strong {
     gap: var(--spacing-large);
     position:absolute;
     bottom: var(--spacing-large);
-    width: calc(100% - var(--spacing-large) * 2);
+    width: min(calc(var(--max-width) - var(--spacing-large) * 2), calc(100% - var(--spacing-large) * 2));
 }
 :is(.btn-prev, .btn-done, .btn-next) {
     border-radius: var(--border-radius-small);
@@ -329,6 +330,9 @@ footer {
 }
 footer a {
     color: var(--clr-content-secondary);
+}
+footer a:hover {
+    color: var(--clr-content-tertiary);
 }
  footer svg {
     --size: var(--fs-300);
