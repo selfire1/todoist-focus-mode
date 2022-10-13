@@ -89,14 +89,44 @@ select {
     --clr-bg-highlight: #f2f2f2;
     --clr-bg-selected: #e6e6e6;
 
+    --spacing-xsmall: 4px;
+    --spacing-small: 8px;
+    --spacing-medium: 12px;
+    --spacing-large: 16px;
+    --spacing-xlarge: 24px;
+    --spacing-xxlarge: 32px;
 
     --border-radius-small: 5px;
     --border-radius-large: 10px;
+
+    --fs-300: .875rem;
+    --fs-400: 1rem;
+    --fs-600: clamp(2rem, 6vw, 5rem);
 }
 html {
     font-family: 'Figtree', sans-serif, system-ui, sans;
     color-scheme: light dark;
 }
+button {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius-small);
+}
+
+button:hover {
+    background-color: var(--clr-bg-highlight);
+}
+
+/* Utility classes */
+.flex-c__row-center-xsmall {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-xsmall);
+}
+
 .container {
     --max-width: 1110px;
     --padding: 1rem;
@@ -107,25 +137,47 @@ html {
 .navigation {
 display: flex;
 justify-content: flex-end;
-gap: 1rem;
+gap: var(--spacing-medium);
 margin: 0;
 padding: 0;
+padding-top: 10px;
 }
 .li-home {
     margin-right: auto;
 }
-
-
-.task-container {
-    padding: 10px;
-    background-color: lightgrey;
-    border-radius: 5px;
-    margin-top: 20px;
-}
+/* Tasks */
+/* Task info */
 .task-context {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-medium);
+    color: var(--clr-content-secondary);
+    font-size: var(--fs-300);
 }
+
+.task-context svg {
+    --size: 16px;
+    width: var(--size);
+    height: var(--size);
+}
+
+/* Project info */
+.project-container { }
+
+.task-project { }
+
+.btn-open-td { }
+
+.task-container {
+    padding: 10px 0;
+    border-top: var(--divider-primary) 1px solid;
+    border-bottom: var(--divider-primary) 1px solid;
+}
+.current-task {
+    padding: 6px 0;
+    font-size: var(--fs-600);
+}
+
+/* Notification */
 .notify {
     display: none;
     background-color: black;
