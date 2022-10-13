@@ -31,12 +31,12 @@ module.exports = function (eleventyConfig) {
                             compB = b.priority
                             if (!asc) {
                                 // Reverse the order on a descending call
-                                if (compB < compA) { return 1; }
-                                if (compB > compA) { return -1; }
+                                if (compA < compB) { return 1; }
+                                if (compA > compB) { return -1; }
                                 return 0;
                             }
-                            if (compB < compA) { return -1; }
-                            if (compB > compA) { return 1; }
+                            if (compA < compB) { return -1; }
+                            if (compA > compB) { return 1; }
                             return 0;
                             break;
                         case "proj":
