@@ -102,10 +102,16 @@ select {
     --fs-300: .875rem;
     --fs-400: 1rem;
     --fs-600: clamp(2rem, 6vw, 5rem);
+
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
 }
 html {
-    font-family: 'Figtree', sans-serif, system-ui, sans;
+    font-family: 'Inter', sans-serif, system-ui, sans;
+    font-weight: var(--fw-400);
     color-scheme: light dark;
+    color: var(--clr-content-primary);
 }
 button {
     background-color: transparent;
@@ -117,6 +123,10 @@ button {
 
 button:hover {
     background-color: var(--clr-bg-highlight);
+}
+
+strong {
+    font-weight: var(--fw-600);
 }
 
 /* Utility classes */
@@ -161,20 +171,36 @@ padding-top: 10px;
 }
 
 /* Project info */
-.project-container { }
+/* .project-container { }
 
 .task-project { }
 
-.btn-open-td { }
+.btn-open-td { } */
 
 .task-container {
-    padding: 10px 0;
+    padding: var(--spacing-medium) 0;
     border-top: var(--divider-primary) 1px solid;
     border-bottom: var(--divider-primary) 1px solid;
 }
 .current-task {
-    padding: 6px 0;
+    padding: var(--spacing-medium) 0;
     font-size: var(--fs-600);
+    font-weight: var(--fw-500);
+    line-height: 1.2;
+    height: 30vh;
+    display: flex;
+    align-items: flex-start;
+    max-width: 800px;
+}
+.current-task a {
+    text-underline-position: under;
+    text-decoration-thickness: from-font;
+    text-decoration-color: var(--clr-content-secondary);
+    color: var(--clr-content-primary);
+}
+.current-task a:hover {
+    text-decoration-thickness: auto;
+    text-decoration-color: var(--clr-content-primary);
 }
 
 /* Notification */
