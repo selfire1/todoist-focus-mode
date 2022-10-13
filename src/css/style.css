@@ -314,7 +314,7 @@ strong {
     padding-bottom: var(--spacing-xlarge);
     border-bottom: 1px solid var(--divider-primary);
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 footer {
