@@ -6,28 +6,6 @@ secure:
   unauthenticatedRedirect: "/"
 ---
 <div class="container">
-  {# Navigation #}
-
-  <nav aria-label="Main">
-    <ul role="list" class="navigation">
-      <li class="li-home">
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/">Help</a>
-      </li>
-      <li>
-        <a href="/">About</a>
-      </li>
-      <li>
-        {% include "logout.njk" %}
-      </li>
-    </ul>
-  </nav>
-
-  {# Hidden input #}
-  <input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
-
   {# Notification calls #}
   <div class="notify" id="notify"></div>
 
@@ -42,20 +20,11 @@ secure:
         <div class="task-project" id="task-project"></div>
       </div>
       <button class="flex-c__row-center-xsmall | btn-open-td" id="btn-open-td">
-        {# Todoist svg #}
-        {# <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.00024 0H28.0002C30.2002 0 32.0002 1.8 32.0002 4V28C32.0002 30.2 30.2002 32 28.0002 32H4.00024C1.80024 32 0.000244141 30.2 0.000244141 28V22.6259L0.0567532 22.6588C1.42164 23.4537 4.64857 25.3329 5.43896 25.7791C5.91728 26.0491 6.37512 26.0425 6.8364 25.7767C7.11231 25.6176 10.1384 23.8761 13.1963 22.1164L13.2111 22.1079L13.2718 22.0729C16.4533 20.242 19.645 18.4052 19.7862 18.3237C20.0634 18.1637 20.0773 17.6726 19.767 17.4955L19.5494 17.3715L19.5492 17.3714L19.5487 17.3711L19.5478 17.3706C19.2315 17.1905 18.8224 16.9575 18.6478 16.8553C18.4245 16.725 18.0229 16.6526 17.6504 16.8672C17.4958 16.9564 7.14912 22.9056 6.80328 23.1022C6.38936 23.3375 5.87704 23.3406 5.46456 23.1018C5.1388 22.9133 0.000244141 19.9274 0.000244141 19.9274V17.234L0.0569832 17.2671C1.422 18.062 4.64861 19.941 5.43896 20.3872C5.91728 20.6572 6.37512 20.6506 6.8364 20.3848C7.1125 20.2256 10.1427 18.4818 13.2028 16.7208L13.2269 16.7069L13.2458 16.696L13.2567 16.6897C16.4432 14.8559 19.6448 13.0134 19.7862 12.9318C20.0634 12.7718 20.0773 12.2807 19.767 12.1037L19.5495 11.9797C19.2331 11.7996 18.8226 11.5658 18.6478 11.4634C18.4245 11.3332 18.0229 11.2608 17.6504 11.4753C17.4958 11.5645 7.14912 17.5137 6.80328 17.7103C6.38936 17.9456 5.87704 17.9487 5.46456 17.7099C5.1388 17.5214 0.000244141 14.5355 0.000244141 14.5355V11.8425L0.0561181 11.875C1.42064 12.6696 4.64845 14.5493 5.43896 14.9956C5.91728 15.2657 6.37512 15.259 6.8364 14.9932C7.11272 14.8339 10.1476 13.0874 13.2102 11.3249L13.2184 11.3202C16.4175 9.47914 19.6442 7.62218 19.7862 7.54023C20.0634 7.38015 20.0773 6.88911 19.767 6.71207L19.5494 6.58808L19.5487 6.58767C19.2324 6.40753 18.8225 6.1741 18.6478 6.07183C18.4245 5.94159 18.0229 5.86919 17.6504 6.08375C17.4958 6.17295 7.14912 12.1222 6.80328 12.3187C6.38936 12.5541 5.87704 12.5571 5.46456 12.3183C5.1388 12.1298 0.000244141 9.14391 0.000244141 9.14391V4C0.000244141 1.8 1.80024 0 4.00024 0Z" fill="{{svgFill}}"/>
-          <path d="M6.83616 14.9932C7.11248 14.8339 10.1473 13.0874 13.2099 11.3249L13.2181 11.3202C16.4172 9.47914 19.644 7.62218 19.7859 7.54023C20.0631 7.38015 20.077 6.88911 19.7668 6.71207L19.5492 6.58808C19.2327 6.40788 18.8224 6.17418 18.6475 6.07183C18.4242 5.94159 18.0226 5.86919 17.6502 6.08375C17.4955 6.17295 7.14888 12.1222 6.80304 12.3187C6.38912 12.5541 5.8768 12.5571 5.46432 12.3183C5.13856 12.1298 0 9.14391 0 9.14391V11.8425L0.055874 11.875C1.42039 12.6696 4.6482 14.5493 5.43872 14.9956C5.91704 15.2657 6.37488 15.259 6.83616 14.9932Z" fill="white"/>
-          <path d="M6.83616 20.3848C7.11226 20.2256 10.1425 18.4818 13.2025 16.7208L13.2266 16.7069C16.423 14.8674 19.6441 13.0137 19.7859 12.9318C20.0631 12.7718 20.077 12.2807 19.7668 12.1037L19.5493 11.9797C19.2329 11.7996 18.8224 11.5658 18.6475 11.4634C18.4242 11.3332 18.0226 11.2608 17.6502 11.4753C17.4955 11.5645 7.14888 17.5137 6.80304 17.7103C6.38912 17.9456 5.8768 17.9487 5.46432 17.7099C5.13856 17.5214 0 14.5355 0 14.5355V17.234L0.056739 17.2671C1.42176 18.062 4.64837 19.941 5.43872 20.3872C5.91704 20.6572 6.37488 20.6506 6.83616 20.3848Z" fill="white"/>
-          <path d="M13.2108 22.1079C10.1479 23.8705 7.11251 25.6174 6.83616 25.7767C6.37488 26.0425 5.91704 26.0491 5.43872 25.7791C4.64832 25.3329 1.42139 23.4537 0.056509 22.6588L0 22.6259V19.9274C0 19.9274 5.13856 22.9133 5.46432 23.1018C5.8768 23.3406 6.38912 23.3375 6.80304 23.1022C7.14888 22.9056 17.4955 16.9564 17.6502 16.8672C18.0226 16.6526 18.4242 16.725 18.6475 16.8553C18.8224 16.9577 19.2327 17.1913 19.5491 17.3715C19.6295 17.4173 19.7039 17.4596 19.7668 17.4955C20.077 17.6726 20.0631 18.1637 19.7859 18.3237C19.6439 18.4057 16.4124 20.2654 13.2108 22.1079Z" fill="white"/>
-        </svg> #}
         {# Hero Icons SVG #}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
           <path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z" clip-rule="evenodd"/>
           <path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z" clip-rule="evenodd"/>
         </svg>
-
-
               Open in Todoist</button>
     </div>
     <div class="current-task" id="task-current"></div>
@@ -80,16 +49,62 @@ secure:
       </button>
     </div>
   </div>
-
   {# Enter filter #}
-  <div class="focusmode-actions">
-    <form action="">
-      <label for="Todoist filter">Enter a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">Read more about filters</a>
-      </label>
-      <input minlength="2" type="text" name="filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
-      <button type="submit" id="btn-filter">Open</button>
-    </form>
-    <button class="btn-copy" id="btn-copy-url">Copy Link to this view</button>
+  <div class="bottom">
+    <div class="focusmode-actions">
+      <form class="filter-form" action="">
+        <label for="Todoist filter">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M2.628 1.601C5.028 1.206 7.49 1 10 1s4.973.206 7.372.601a.75.75 0 01.628.74v2.288a2.25 2.25 0 01-.659 1.59l-4.682 4.683a2.25 2.25 0 00-.659 1.59v3.037c0 .684-.31 1.33-.844 1.757l-1.937 1.55A.75.75 0 018 18.25v-5.757a2.25 2.25 0 00-.659-1.591L2.659 6.22A2.25 2.25 0 012 4.629V2.34a.75.75 0 01.628-.74z" clip-rule="evenodd"/>
+          </svg>
+Display from a Todoist filter. <a href="https://todoist.com/help/articles/introduction-to-filters">About filters</a>
+        </label>
+        <input minlength="2" type="text" name="filter" class="input-filter" id="input-filter" value="{{ eleventy.serverless.query.filter }}">
+        <button type="submit" id="btn-filter">Open</button>
+      </form>
+      <button class="btn-copy" id="btn-copy-url">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+          <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"/>
+          <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"/>
+        </svg>
+        Copy link to this view</button>
+      {% include "logout.njk" %}
+    </div>
+    <footer>
+      <nav aria-label="external">
+        <ul role="list" class="navigation">
+          <li class="li-home">
+            <a href="/">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd"/>
+              </svg>
+
+            Home</a>
+          </li>
+          <li>
+            <a href="/">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+              </svg>
+
+            Help</a>
+          </li>
+          <li>
+            <a href="/">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+              </svg>
+            About</a>
+          </li>
+          <li></li>
+        </ul>
+      </nav>
+      <p class="heart">Created with <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+        </svg>
+ by <a class="j-link" href="https://joschua.io/">Joschua</a>.</p>
+      <p>This application is not created by, affiliated with, or supported by Doist</p>
+    </footer>
   </div>
 </div>
 {# {% if user %}
@@ -105,3 +120,6 @@ secure:
     <!-- Show Login form -->
     <a href="/">Login</a>
 {% endif %} #}
+
+{# Hidden input #}
+<input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
