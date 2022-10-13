@@ -207,7 +207,7 @@ strong {
     gap: var(--spacing-large);
     position:absolute;
     bottom: var(--spacing-large);
-    width: min(calc(var(--max-width) - var(--spacing-large) * 2), calc(100% - var(--spacing-large) * 2));
+    width: min(var(--max-width), calc(100% - var(--spacing-large) * 2));
 }
 :is(.btn-prev, .btn-done, .btn-next) {
     border-radius: var(--border-radius-small);
@@ -282,7 +282,7 @@ strong {
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
-    flex-grow: 2;
+    flex-basis: 100%
 }
 .filter-form label {
     flex-basis: 100%;
@@ -313,12 +313,8 @@ strong {
     gap: var(--spacing-xlarge);
     padding-bottom: var(--spacing-xlarge);
     border-bottom: 1px solid var(--divider-primary);
-}
-.btn-copy {
-    flex-grow: 1;
-}
-.logout-form {
-    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
 }
 
 footer {
