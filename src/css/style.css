@@ -251,6 +251,11 @@ strong {
     width: var(--size);
     height: var(--size);
 }
+.btn-done:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-inverse-primary);
+    opacity: .9;
+}
 
 .bottom {
     background-color: var(--clr-bg-aside);
