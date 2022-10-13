@@ -123,6 +123,7 @@ button {
 
 button:hover {
     background-color: var(--clr-bg-highlight);
+    color: var(--clr-content-primary);
 }
 
 strong {
@@ -202,6 +203,60 @@ padding-top: 10px;
     text-decoration-thickness: auto;
     text-decoration-color: var(--clr-content-primary);
 }
+
+/* Task buttons */
+.task-buttons {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+:is(.btn-prev, .btn-done, .btn-next) {
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-xsmall) --spacing-small;
+    display: flex;
+    align-items: center;
+}
+:is(.btn-prev,.btn-next) {
+    flex-grow: .5;
+    flex-direction: column-reverse;
+    background-color: var(--clr-bg-aside);
+    color: var(--clr-content-secondary);
+    font-size: .875rem;
+}
+
+:is(.btn-prev, .btn-next):disabled {
+    cursor: default;
+    background-color: var(--clr-bg-default);
+    color: var(--clr-content-tertiary);
+    opacity: .8;
+    
+}
+.btn-prev {
+    flex-direction: column;
+}
+
+:is(.btn-prev, .btn-next) svg {
+    --size: 2.5rem;
+    width: var(--size);
+    height: var(--size);
+}
+.btn-done {
+    background-color: var(--clr-accent);
+    color: var(--clr-inverse-primary);
+    flex-grow: 2;
+    justify-content: center;
+    flex-direction: row;
+    gap: var(--spacing-xsmall);
+}
+.btn-done svg {
+--size: 1.5rem;
+    width: var(--size);
+    height: var(--size);
+}
+/* .btn-prev,
+.btn-done,
+.btn-next {
+    background-color: var(--clr-bg-highlight);
+} */
 
 /* Notification */
 .notify {
