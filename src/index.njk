@@ -8,9 +8,44 @@ title: "Todoist Focus Mode"
     <code>{{ token }}</code>
     <a href="{{ secure | url }}">Enter Focus mode</a>
 {% else %}
-    <h2>Get started</h2>
-    <form action="/.netlify/functions/auth-before">
-        <input type="hidden" name="securePath" value="/secure/">
-        <button type="submit" name="provider" value="todoist">Login with Todoist</button>
-    </form>
+
 {% endif %}
+<div class="grid-container">
+    <div class="primary-container">
+        <div class="primary-container-text">
+            <h1>{{ landingpage.primary.heading }}</h1>
+            <p class="primary-subtitle">{{ landingpage.primary.subtitle}}</p>
+            <form action="/.netlify/functions/auth-before">
+                <input type="hidden" name="securePath" value="/secure/">
+                <button type="submit" name="provider" value="todoist">Login with Todoist</button>
+            </form>
+        </div>
+        <img class="primary-img" src="{{ landingpage.primary.img }}">
+    </div>
+    <div class="quote-container">
+        <p class="quote">{{ landingpage.quote.text}}</p>
+        <p class="quote-author">{{ landingpage.quote.author}}</p>
+    </div>
+    <div class="secondary-container sec-container__1">
+        <div class="secondary-container-text sec-container-text__1">
+            <h2>{{landingpage.secondary1.heading}}</h2>
+            <p class="secondary-subtitle sec-subtitle__1">{{landingpage.secondary1.heading}}</p>
+        </div>
+        <img src="{{ landingpage.secondary1.img }}" class="secondary-image__1">
+    </div>
+
+    <div class="secondary-container sec-container__2">
+        <div class="secondary-container-text sec-container-text__2">
+            <h2>{{landingpage.secondary2.heading}}</h2>
+            <p class="secondary-subtitle sec-subtitle__2">{{landingpage.secondary2.heading}}</p>
+        </div>
+        <img src="{{ landingpage.secondary2.img }}" class="secondary-image__2">
+    </div>
+    <div class="secondary-container sec-container__3">
+        <div class="secondary-container-text sec-container-text__3">
+            <h2>{{landingpage.secondary3.heading}}</h2>
+            <p class="secondary-subtitle sec-subtitle__3">{{landingpage.secondary3.heading}}</p>
+        </div>
+        <img src="{{ landingpage.secondary3.img }}" class="secondary-image__3">
+    </div>
+</div>
