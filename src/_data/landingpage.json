@@ -1,0 +1,26 @@
+{
+  "primary": {
+    "heading": "Explain value as simple as possible",
+    "subtitle": "Subtitle are where you get specific. Introduce the product. Explain how it creates the value in your title.",
+    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg"
+  },
+  "quote": {
+    "text": "Here is a really interesting thing you should know",
+    "author": "This is the person who said this great thing"
+  },
+  "secondary1": {
+    "heading": "Great heading",
+    "subtitle": "Cool subtitle",
+    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg"
+  },
+  "secondary2": {
+    "heading": "Great heading",
+    "subtitle": "Cool subtitle",
+    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg"
+  },
+  "secondary3": {
+    "heading": "Great heading",
+    "subtitle": "Cool subtitle",
+    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg"
+  }
+}
