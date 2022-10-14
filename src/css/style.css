@@ -76,7 +76,7 @@ select {
 /* ---- END RESET ---- */
 /* Variables */
 :root {
-    --max-width: 1110px;
+    --max-width: 65rem;
 
     --clr-content-tertiary: #999999;
     --clr-content-secondary: #707070;
@@ -136,7 +136,7 @@ strong {
 
 .container {
     display: grid;
-    --padding: var(--spacing-large);
+    --padding: var(--spacing-xlarge);
     width: min(var(--max-width), 100% - (var(--padding) * 2));
     margin-inline: auto;
 }
@@ -181,13 +181,17 @@ strong {
     gap: var(--spacing-large);
     min-height: 100vh;
 }
+@media screen and (min-width: 48rem) {
+    .task-container {
+        gap: var(--spacing-xlarge);
+    }
+}
 .current-task {
     font-size: var(--fs-600);
     font-weight: var(--fw-500);
     line-height: 1.2;
     display: flex;
     align-items: flex-start;
-    max-width: 800px;
     overflow-wrap: anywhere;
 }
 .current-task a {
@@ -269,13 +273,25 @@ strong {
     padding-top: var(--spacing-xlarge);
 }
 
+.bottom-container {
+    --max-width-bottom: 42rem;
+    --padding: var(--spacing-large);
+    width: min(var(--max-width-bottom), 100% - (var(--padding) * 2));
+    margin-inline: auto;
+}
+
 .bottom svg {
     --size: var(--fs-300);
     width: var(--size);
     height: var(--size);
     margin-bottom: -1px;
 }
-
+.bottom-header {
+    text-align: center;
+    font-weight: 500;
+    font-size: var(--fs-400);
+    padding-bottom: var(--spacing-medium);
+}
 .filter-form {
     display: flex;
     gap: var(--spacing-small);
@@ -292,9 +308,15 @@ strong {
     min-width: 50px;
     border: 1px solid var(--divider-primary);
 }
-.filter-form a {
+button.btn-logout {
+    background-color: var(--clr-surface);
+}
+.focusmode-actions a {
     font-size: var(--fs-300);
     color: var(--clr-content-tertiary)
+}
+.focusmode-actions a:hover {
+    color: var(--clr-content-secondary);
 }
 
 .input-filter {
@@ -314,7 +336,7 @@ strong {
     padding-bottom: var(--spacing-xlarge);
     border-bottom: 1px solid var(--divider-primary);
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 footer {
