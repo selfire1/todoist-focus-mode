@@ -174,17 +174,18 @@ strong {
 .btn-open-td { } */
 
 .task-container {
-    margin-bottom: var(--spacing-xlarge);
+    margin-bottom: var(--spacing-large);
     padding: var(--spacing-large) 0;
     padding-top: var(--spacing-xxlarge);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
-    min-height: calc(100vh - var(--spacing-xlarge));
+    min-height: calc(100vh - var(--spacing-large));
 }
 @media screen and (min-width: 48rem) {
     .task-container {
         gap: var(--spacing-xlarge);
+        min-height: calc(100vh - 3rem);
     }
 }
 .current-task {
