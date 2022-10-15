@@ -18,9 +18,11 @@ function renderTask(i = window.index) {
         return
     }
     const currentTask = window.tasks[i].content;
-    div.innerHTML(mdToHtmlElement(currentTask));
+    let mdText = mdToHtmlElement(currentTask);
+    div.innerHTML(sanitizeHTML(mdText));
     const fm = document.getElementById('task-project');
-    fm.innerHTML(findProject(window.tasks[i].project_id, projects))
+    let project = findProject(window.tasks[i].project_id, projects);
+    fm.innerHTML(sanitizeHTML(project));
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
@@ -168,6 +170,18 @@ function findProject(tasksProjectID, projects) {
     const projectIndex = projects.findIndex(isProjectId)
     return projects[projectIndex].name;
 }
+
+/*!
+ * Sanitize and encode all HTML in a user-submitted string
+ * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * @param  {String} str  The user-submitted string
+ * @return {String} str  The sanitized string
+ */
+var sanitizeHTML = function (str) {
+    var temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
+};
 
 // function mdToHtmlElement(str) {
 //     let span = document.createElement("span");
