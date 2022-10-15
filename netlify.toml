@@ -22,7 +22,3 @@ force = true
 
 [dev]
 targetPort = 8_081
-
-# [functions]
-# external_node_modules = [ "@11ty/eleventy", "@11ty/dependency-tree", "pug-filters" ]
-# node_bundler = "esbuild"
