@@ -21,8 +21,7 @@ function renderTask(i = window.index) {
     div.innerHTML = mdToHtmlElement(currentTask);
 
     const fm = document.getElementById('task-project');
-    let project = findProject(window.tasks[i].project_id, projects);
-    fm.innerHTML = mdToHtmlElement(project);
+    fm.innerHTML = findProject(window.tasks[i].project_id, projects);
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
