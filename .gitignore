@@ -13,6 +13,7 @@ _site/
 # Misc
 .DS_Store
 .env
+.cache
 
 # Local Netlify folder
 netlify/functions/dynamic/**
