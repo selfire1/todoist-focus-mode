@@ -19,4 +19,8 @@ force = true
 _generated_by_eleventy_serverless = "serverless"
 
 [dev]
-targetPort = 8_081
+targetPort = 8081
+
+# Include all files in all functions
+[functions]
+  included_files = ["languages/**"]
