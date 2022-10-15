@@ -174,19 +174,20 @@ strong {
 .btn-open-td { } */
 
 .task-container {
-    margin-bottom: var(--spacing-large);
+    margin-bottom: var(--spacing-xlarge);
     padding: var(--spacing-large) 0;
     padding-top: var(--spacing-xxlarge);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
-    min-height: calc(100vh - 3rem);
+    min-height: calc(100vh - 3.2rem);
 }
 /* For large screens */
 @media screen and (min-width: 48rem) {
     .task-container {
         gap: var(--spacing-xlarge);
         min-height: calc(100vh - var(--spacing-large));
+    margin-bottom: var(--spacing-large);
     }
 }
 .current-task {
@@ -261,7 +262,7 @@ strong {
 .btn-done:hover {
     background-color: var(--clr-accent);
     color: var(--clr-inverse-primary);
-    opacity: .9;
+    opacity: .8;
 }
 
 .bottom {
@@ -396,7 +397,7 @@ padding-bottom: var(--spacing-medium);
 
 /* Hover class (toggled also on keydown from JS */
 @media (hover: hover) {
-button:hover:not(:disabled),
+button:hover:not(.btn-done):not(:disabled),
 .hover {
     background-color: var(--clr-bg-highlight);
     color: var(--clr-content-primary);
