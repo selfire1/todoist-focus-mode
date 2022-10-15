@@ -56,6 +56,6 @@ This URL scheme allows for some impactful automations. In your note for a projec
 
 ## Help
 
-If you encounter any bugs, feel free to mention them in this projects [issues](https://github.com/selfire1/todoist-focus-mode/issues). In case you're stuck and need some help, please open an issue as well.
+If you encounter any bugs, feel free to mention them in this project's [issues](https://github.com/selfire1/todoist-focus-mode/issues). In case you're stuck and need some help, please open an issue as well.
 
 The issues are also the place for feature requests. Since Flowist is an opinionated tool designed to be simple, some features may not be compatible.
