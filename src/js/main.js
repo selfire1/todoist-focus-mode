@@ -177,7 +177,7 @@ function findProject(tasksProjectID, projects) {
  * @param  {String} str  The user-submitted string
  * @return {String} str  The sanitized string
  */
-var sanitizeHTML = function (str) {
+function sanitizeHTML(str) {
     var temp = document.createElement('div');
     temp.textContent = str;
     return temp.innerHTML;
