@@ -180,12 +180,13 @@ strong {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
-    min-height: calc(100vh - var(--spacing-large));
+    min-height: calc(100vh - 3rem);
 }
+/* For large screens */
 @media screen and (min-width: 48rem) {
     .task-container {
         gap: var(--spacing-xlarge);
-        min-height: calc(100vh - 3rem);
+        min-height: calc(100vh - var(--spacing-large));
     }
 }
 .current-task {
