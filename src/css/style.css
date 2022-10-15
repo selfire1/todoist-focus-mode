@@ -393,11 +393,14 @@ padding-bottom: var(--spacing-medium);
 }
 
 /* Hover class (toggled also on keydown from JS */
+@media (hover: hover) {
 button:hover:not(:disabled),
 .hover {
     background-color: var(--clr-bg-highlight);
     color: var(--clr-content-primary);
+    }
 }
+
 button:active:not(:disabled),
 .hover {
     transform: scale(.97);
