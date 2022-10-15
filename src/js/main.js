@@ -36,7 +36,24 @@ btnDone.addEventListener('click', function () {
     taskDone(window.tasks[window.index].id, token);
     notify("☑ Marked task as done")
 })
-
+// Closing a task
+async function taskDone(taskId, apiKey) {
+    let url = `https://api.todoist.com/rest/v2/tasks/${taskId}/close`;
+    let response = await fetch(url, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${apiKey}`
+        }
+    })
+    if (response.ok) {
+        console.log("Completed task");
+        window.tasks.splice(window.index, 1)
+        window.index--
+        renderTask()
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
 // Keypress navigation
 document.onkeydown = function (e) {
     switch (e.keyCode) {
