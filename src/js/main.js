@@ -19,10 +19,10 @@ function renderTask(i = window.index) {
     }
     const currentTask = window.tasks[i].content;
     let mdText = mdToHtmlElement(currentTask);
-    div.innerHTML(sanitizeHTML(mdText));
+    div.innerHTML = sanitizeHTML(mdText);
     const fm = document.getElementById('task-project');
     let project = findProject(window.tasks[i].project_id, projects);
-    fm.innerHTML(sanitizeHTML(project));
+    fm.innerHTML = sanitizeHTML(project);
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
