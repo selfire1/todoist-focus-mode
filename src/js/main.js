@@ -18,8 +18,8 @@ function renderTask(i = window.index) {
         return
     }
     const currentTask = window.tasks[i].content;
-    let mdText = mdToHtmlElement(currentTask);
-    div.innerHTML = sanitizeHTML(mdText);
+    div.innerHTML = mdToHtmlElement(currentTask);
+
     const fm = document.getElementById('task-project');
     let project = findProject(window.tasks[i].project_id, projects);
     fm.innerHTML = sanitizeHTML(project);
