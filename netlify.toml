@@ -12,9 +12,8 @@ force = true
 _generated_by_eleventy_serverless = "dynamic"
 
 [dev]
-targetPort = 8081
+targetPort = 8_081
 
-# use esbuild for bunding
 [functions]
-  external_node_modules = ["@11ty/eleventy", "@11ty/dependency-tree", "pug-filters"]
-  node_bundler = "esbuild"
+external_node_modules = [ "@11ty/eleventy", "@11ty/dependency-tree", "pug-filters" ]
+node_bundler = "esbuild"
