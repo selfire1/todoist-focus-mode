@@ -403,3 +403,12 @@ button:active:not(:disabled),
     transform: scale(.97);
     transition: transform .2s cubic-bezier(.02, 1.505, .745, 1.235)
 }
+/* Landing page */
+.lp-img {
+    object-fit: cover;
+    max-height: 100%;
+}
+:is(.primary-container, .secondary-container) {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
