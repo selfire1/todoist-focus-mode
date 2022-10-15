@@ -174,12 +174,13 @@ strong {
 .btn-open-td { } */
 
 .task-container {
+    margin-bottom: var(--spacing-xlarge);
     padding: var(--spacing-large) 0;
     padding-top: var(--spacing-xxlarge);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
-    min-height: 100svh;
+    min-height: calc(100vh - var(--spacing-xlarge));
 }
 @media screen and (min-width: 48rem) {
     .task-container {
@@ -209,9 +210,8 @@ strong {
 .task-buttons {
     display: flex;
     gap: var(--spacing-large);
-    position:absolute;
+    margin-top: auto;
     bottom: var(--spacing-large);
-    width: min(var(--max-width), calc(100% - var(--spacing-large) * 2));
 }
 :is(.btn-prev, .btn-done, .btn-next) {
     border-radius: var(--border-radius-small);
