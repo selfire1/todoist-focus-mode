@@ -261,7 +261,7 @@ strong {
 .btn-done:hover {
     background-color: var(--clr-accent);
     color: var(--clr-inverse-primary);
-    opacity: .9;
+    opacity: .8;
 }
 
 .bottom {
@@ -396,7 +396,7 @@ padding-bottom: var(--spacing-medium);
 
 /* Hover class (toggled also on keydown from JS */
 @media (hover: hover) {
-button:hover:not(:disabled),
+button:hover:not(.btn-done):not(:disabled),
 .hover {
     background-color: var(--clr-bg-highlight);
     color: var(--clr-content-primary);
