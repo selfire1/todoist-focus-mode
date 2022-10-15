@@ -2,7 +2,6 @@
   "name": "todoist-focus-mode",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve --port=8081 --watch",
@@ -24,7 +23,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
-    "@doist/todoist-api-typescript": "^2.0.4",
+    "@11ty/eleventy-img": "^2.0.1",
     "@netlify/functions": "^1.2.0",
     "cookie": "^0.4.1",
     "dotenv": "^10.0.0",
