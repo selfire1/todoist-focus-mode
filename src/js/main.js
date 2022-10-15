@@ -91,7 +91,8 @@ btnCopy.addEventListener('click', function () {
         console.log('Copied!');
         notify("📋 Copied link to clipboard");
     }, function () {
-        console.log('Copy error')
+        notify("⚠️ Error! Please copy manually");
+        console.log('Copy error');
     });
 
 })
