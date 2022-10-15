@@ -23,5 +23,5 @@ targetPort = 8081
 
 # use esbuild for bunding
 [functions]
-  external_node_modules = ["./eleventy-bundler-modules.js"]
+  external_node_modules = ["./eleventy-bundler-modules.js", "@11ty/eleventy", "@11ty/dependency-tree", "pug-filters"]
   node_bundler = "esbuild"
