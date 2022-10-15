@@ -48,7 +48,7 @@ Sort tasks by due date, project or priority through url parameters. The schema i
 
 Both filters and sort preferences are stored in the URL. This allows you to combine sorting a filters in a powerful way. Note that all parameters need to be url encoded.
 
-- Show me all tasks due today or overdue, sorted from the highest priority down: `https://flowist.netlify.app/secure/?filter=today%7Coverdue&sort=prio:desc` (`%7` is the encoding for `|` which stand for "or" in Todoist Filters)
+- Show me all tasks due today or overdue, sorted from the highest priority down: `https://flowist.netlify.app/secure/?filter=today%7Coverdue&sort=prio:desc` (`%7` is the encoding for `|` which stands for "or" in Todoist Filters)
 - Display tasks in Inbox, with the most overdue items first: `https://flowist.netlify.app/secure/?filter=Inbox&sort=due:desc`
 - Show me tasks tagged "phone", sorted by priority and then by project: `https://flowist.netlify.app/secure/?filter=%40phone&sort=prio:asc,proj:desc`
 
