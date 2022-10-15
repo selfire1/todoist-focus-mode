@@ -21,10 +21,6 @@ _generated_by_eleventy_serverless = "serverless"
 [dev]
 targetPort = 8081
 
-# Include all files in all functions
-[functions]
-  included_files = ["netlify/**"]
-  
 # use esbuild for bunding
 [functions]
   node_bundler = "esbuild"
