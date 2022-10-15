@@ -22,7 +22,7 @@ function renderTask(i = window.index) {
 
     const fm = document.getElementById('task-project');
     let project = findProject(window.tasks[i].project_id, projects);
-    fm.innerHTML = sanitizeHTML(project);
+    fm.innerHTML = mdToHtmlElement(project);
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
