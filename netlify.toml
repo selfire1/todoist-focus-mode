@@ -11,9 +11,18 @@ status = 200
 force = true
 _generated_by_eleventy_serverless = "dynamic"
 
+[[redirects]]
+from = "/"
+to = "/secure/"
+status = 302
+force = true
+
+  [redirects.conditions]
+  Cookie = [ "_11ty_oauth_token" ]
+
 [dev]
 targetPort = 8_081
 
-[functions]
-external_node_modules = [ "@11ty/eleventy", "@11ty/dependency-tree", "pug-filters" ]
-node_bundler = "esbuild"
+# [functions]
+# external_node_modules = [ "@11ty/eleventy", "@11ty/dependency-tree", "pug-filters" ]
+# node_bundler = "esbuild"
