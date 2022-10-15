@@ -259,11 +259,6 @@ strong {
     width: var(--size);
     height: var(--size);
 }
-.btn-done:hover {
-    background-color: var(--clr-accent);
-    color: var(--clr-inverse-primary);
-    opacity: .8;
-}
 
 .bottom {
     background-color: var(--clr-bg-aside);
@@ -395,13 +390,19 @@ padding-bottom: var(--spacing-medium);
     margin: 5px;
 }
 
-/* Hover class (toggled also on keydown from JS */
+/* Media query: Where hover is possible, so on devices with a mouse */
 @media (hover: hover) {
 button:hover:not(.btn-done):not(:disabled),
+/* Hover class (toggled also on keydown from JS */
 .hover {
     background-color: var(--clr-bg-highlight);
     color: var(--clr-content-primary);
     }
+        .btn-done:hover {
+            background-color: var(--clr-accent);
+            color: var(--clr-inverse-primary);
+            opacity: .8;
+        }
 }
 
 button:active:not(:disabled),
