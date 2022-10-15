@@ -23,4 +23,5 @@ targetPort = 8081
 
 # use esbuild for bunding
 [functions]
+  external_node_modules = ["eleventy-bundler-modules.js"]
   node_bundler = "esbuild"
