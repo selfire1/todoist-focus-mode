@@ -18,9 +18,9 @@ function renderTask(i = window.index) {
         return
     }
     const currentTask = window.tasks[i].content;
-    div.setHTML(mdToHtmlElement(currentTask));
+    div.innerHTML(mdToHtmlElement(currentTask));
     const fm = document.getElementById('task-project');
-    fm.setHTML(findProject(window.tasks[i].project_id, projects))
+    fm.innerHTML(findProject(window.tasks[i].project_id, projects))
 }
 // Buttons
 const btnNext = document.getElementById('btn-next');
