@@ -23,4 +23,4 @@ targetPort = 8081
 
 # Include all files in all functions
 [functions]
-  included_files = ["languages/**"]
+  included_files = ["netlify/**"]
