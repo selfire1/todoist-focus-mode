@@ -3,7 +3,7 @@
 <div align="center">
 Flowist is your Focus Mode companion for Todoist.
 
-**[Open](https://flowist.netlify.app/)**
+**[Get Started](https://flowist.netlify.app/)**
 
 _This application is not created by, affiliated with, or supported by Doist._
 
