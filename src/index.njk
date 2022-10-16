@@ -9,7 +9,7 @@ title: "Todoist Focus Mode"
 {% else %}
 
 {% endif %}
-<div class="container grid-container">
+<div class="container home-container">
     <header>
         <nav aria-label="main">
             <ul role="list" class="hp-nav">
@@ -32,7 +32,9 @@ title: "Todoist Focus Mode"
                 <button type="submit" name="provider" value="todoist">Login with Todoist</button>
             </form>
         </div>
-        <img class="lp-img primary-img" src="{{ landingpage.primary.img }}">
+
+        <div class="lp-img primary-img">
+            {% image "https://github.com/selfire1/todoist-focus-mode/blob/main/imgs/lp-primary.png?raw=true", "a phone running flowist in a serene environment", "(min-width: 30em) 50vw, 100vw" %}</div>
     </div>
     <div class="quote-container">
         <p class="quote">{{ landingpage.quote.text}}</p>
