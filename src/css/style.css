@@ -97,10 +97,12 @@ select {
     --spacing-large: 16px;
     --spacing-xlarge: 24px;
     --spacing-xxlarge: 32px;
+    --spacing-xxxlarge: 6rem;
 
     --border-radius-small: 5px;
     --border-radius-large: 10px;
 
+    --fs-200: .75rem;
     --fs-300: .875rem;
     --fs-400: 1rem;
     --fs-600: clamp(4rem, 6vw, 6rem);
@@ -391,7 +393,7 @@ padding-bottom: var(--spacing-medium);
 
 /* Media query: Where hover is possible, so on devices with a mouse */
 @media (hover: hover) {
-button:hover:not(.btn-done):not(:disabled),
+button:hover:not(:is(.btn-done, .cta-btn)):not(:disabled),
 /* Hover class (toggled also on keydown from JS */
 .hover {
     background-color: var(--clr-bg-highlight);
@@ -412,6 +414,8 @@ button:active:not(:disabled),
 /* Landing page */
 /* Navigation */
 .hp-nav {
+    border-bottom: var(--spacing-large);
+    border-top: var(--spacing-large);
     padding: 0;
 }
 .nav-logo {
@@ -433,18 +437,62 @@ button:active:not(:disabled),
 .home-container {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-xxxlarge);
 }
 
 /* Containers */
 .lp-img > picture > * {
     object-fit: cover;
     width: 100%;
-    aspect-ratio: 16/10;
+    aspect-ratio: 6/5;
+    max-height: 20rem;
+    border-radius: var(--border-radius-large);
 }
 
 .primary-container {
     display: grid;
+    gap: var(--spacing-xlarge);
     grid-template-columns: 
         repeat(auto-fit, minmax(15rem, 1fr));
+}
+.primary-container-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+.primary-heading {
+    line-height: 1.2;
+}
+.disclaimer {
+    color: var(--clr-content-tertiary);
+    font-style: italic;
+    margin-top: auto;
+    font-size: var(--fs-200);
+}
+.primary-subtitle {
+    color: var(--clr-content-secondary);
+}
+
+.cta-btn {
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-xsmall);
+    font-size: var(--fs-300);
+    min-width: 9rem;
+    background-color: var(--clr-accent);
+    color: var(--clr-inverse-primary);
+}
+.cta-btn:hover {
+    opacity: .8;
+    background-color: var(--clr-accent);
+    color: var(--clr-inverse-primary);
+}
+.quote-container {
+    margin-top: var(--spacing-large);
+    margin-bottom: var(--spacing-xxlarge);
+    max-width: 25rem;
+    margin-inline: auto;
+}
+.quote-caption {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-500);
 }
