@@ -2,7 +2,6 @@
 layout: base.njk
 title: "Todoist Focus Mode"
 ---
-<hr>
 {% if user %}
     <h2>You are logged in</h2>
     <code>{{ token }}</code>
@@ -11,6 +10,19 @@ title: "Todoist Focus Mode"
 
 {% endif %}
 <div class="container grid-container">
+    <header>
+        <nav aria-label="main">
+            <ul role="list" class="hp-nav">
+                <li>
+                    <div class="nav-logo">
+                        <a href="/">
+                    flowist<span class="accent-dot">.</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <div class="primary-container">
         <div class="primary-container-text">
             <h1>{{ landingpage.primary.heading }}</h1>

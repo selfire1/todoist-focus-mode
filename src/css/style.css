@@ -419,3 +419,20 @@ button:active:not(:disabled),
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
+.hp-nav {
+    padding: 0;
+}
+.nav-logo {
+    font-weight: var(--fw-600);
+    font-size: var(--fs-300);
+}
+.nav-logo a {
+    text-decoration: none;
+    color: var(--clr-content-primary);
+}
+.nav-logo a:hover {
+    text-decoration: underline;
+}
+.accent-dot {
+    color: var(--clr-accent);
+}
