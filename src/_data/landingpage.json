@@ -1,30 +1,22 @@
 {
   "primary": {
-    "heading": "Explain value as simple as possible",
-    "subtitle": "Subtitle are where you get specific. Introduce the product. Explain how it creates the value in your title.",
-    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg",
-    "imgalt": "alt text"
+    "heading": "Focus Mode for Todoist",
+    "subtitle": "Flowist help you focus on what matters. Rather than being overwhelmed by a big list of tasks, gain clarity from working on one task at a time. Free and open-source."
   },
   "quote": {
-    "text": "Here is a really interesting thing you should know",
-    "author": "This is the person who said this great thing"
+    "text": "“This way of work and organisation that’s so common in modern life, where we have a lot of very varied things that have to be done, all mixed together all at once, really is incompatible with our brain.”",
+    "author": "— Cal Newport"
   },
   "secondary1": {
     "heading": "Great heading",
-    "subtitle": "Cool subtitle",
-    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg",
-    "img-alt": "alt text"
+    "subtitle": "Cool subtitle"
   },
   "secondary2": {
     "heading": "Great heading",
-    "subtitle": "Cool subtitle",
-    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg",
-    "img-alt": "alt text"
+    "subtitle": "Cool subtitle"
   },
   "secondary3": {
     "heading": "Great heading",
-    "subtitle": "Cool subtitle",
-    "img": "/assets/sarah-dorweiler-Icx3H3Dc0jI-unsplash.jpg",
-    "img-alt": "alt text"
+    "subtitle": "Cool subtitle"
   }
 }

@@ -11,7 +11,7 @@ _This application is not created by, affiliated with, or supported by Doist._
 
 ## The Task Freeze effect
 
-> “This way of work and organisation that’s so common in modern life where we have a lot of very varied things that have to be done all mixed together all at once really is incompatible with our brain.”
+> “This way of work and organisation that’s so common in modern life, where we have a lot of very varied things that have to be done, all mixed together all at once, really is incompatible with our brain.”
 > – _Cal Newport_<sup>[Source](https://youtu.be/aOWL59-y82I?t=130)</sup>
 
 Todo lists are inhumane. When we see a list of tasks that is long and diverse the planning apparatus of our brain locks up. It can't deal with these 10 or 15 things that all have to be done, so it freezes. No motivation is generated, nothing gets ticked off the todo list, procrastination kicks in.
