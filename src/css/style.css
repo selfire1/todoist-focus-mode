@@ -105,7 +105,9 @@ select {
     --fs-200: .75rem;
     --fs-300: .875rem;
     --fs-400: 1rem;
-    --fs-600: clamp(4rem, 6vw, 6rem);
+    --fs-500: 1.5rem;
+    --fs-600: 2.5rem;
+    --fs-800: clamp(4rem, 6vw, 6rem);
 
     --fw-400: 400;
     --fw-500: 500;
@@ -197,7 +199,7 @@ strong {
     }
 }
 .current-task {
-    font-size: var(--fs-600);
+    font-size: var(--fs-800);
     font-weight: var(--fw-500);
     line-height: 1.2;
     display: flex;
@@ -466,6 +468,8 @@ button:active:not(:disabled),
     gap: var(--spacing-small);
 }
 .primary-heading {
+    font-size: var(--fs-600);
+    font-weight: var(--fw-600);
     line-height: 1.2;
 }
 .disclaimer {
@@ -500,4 +504,24 @@ button:active:not(:disabled),
 .quote-caption {
     font-size: var(--fs-300);
     font-weight: var(--fw-500);
+}
+
+.secondary-container {
+    display: grid;
+    gap: var(--spacing-xlarge);
+    grid-template-columns: 
+        repeat(auto-fit, minmax(15rem, 1fr));
+}
+.secondary-container-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+.secondary-heading {
+    font-weight: var(--fw-500);
+    font-size: var(--fs-500);
+    line-height: 1.2;
+}
+.secondary-subtitle {
+    color: var(--clr-content-secondary);
 }
