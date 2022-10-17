@@ -46,7 +46,8 @@ title: "Todoist Focus Mode"
         </blockquote>
         <figcaption class="quote-caption">
           {{ landingpage.quote.author -}}
-          <cite>, Deep Questions</cite>
+          <cite>, <a class="cite-link" href="https://www.youtube.com/watch?v=aOWL59-y82I">The Task Freeze Effect</a>
+          </cite>
         </figcaption>
       </figure>
     </div>
@@ -55,7 +56,7 @@ title: "Todoist Focus Mode"
         <h2 class="secondary-heading">{{landingpage.secondary1.heading}}</h2>
         <div class="flex-col-small | secondary-subtitle sec-subtitle__1">
           <p>Our brains are not made for todo-lists. When we see a list of tasks that is long and diverse, the planning apparatus of our brain locks up. It can't deal with these 10 or 15 things that have to be done. So it freezes. No motivation is generated, nothing gets done and procrastination kicks in.</p>
-          <p>Flowist is a companion for Todoist. It pulls in the tasks and lets you focus. On only one task. One thing, right there in front of you. Our brains can handle that. Skip the overwhelm, find flow.</p>
+          <p>Flowist is a companion for Todoist. It pulls in the tasks and lets you focus. On one task at a time. One thing, right there in front of you. Our brains can handle that. Skip the overwhelm and find flow.</p>
         </div>
       </div>
       <div class="lp-img secondary-image__1">
@@ -65,7 +66,7 @@ title: "Todoist Focus Mode"
 
     <div class="secondary-container sec-container__2">
       <div class="lp-img secondary-image__2">
-        {% image "https://github.com/selfire1/todoist-focus-mode/blob/main/imgs/secondary2-img.png?raw=true", "two screens, the one to the left running Flowist with a task called Weekly Reflection", "(min-width: 30em) 50vw, 100vw" %}
+        {% image "https://github.com/selfire1/todoist-focus-mode/blob/main/imgs/secondary2-img.png?raw=true", "man in a white shirt holding a phone displaying the Flowist actions", "(min-width: 30em) 50vw, 100vw" %}
       </div>
       <div class="secondary-container-text sec-container-text__2">
         <h2 class="secondary-heading">{{landingpage.secondary2.heading}}</h2>
@@ -80,11 +81,47 @@ title: "Todoist Focus Mode"
         <h2 class="secondary-heading">{{landingpage.secondary3.heading}}</h2>
         <div class="flex-col-small | secondary-subtitle sec-subtitle__3">
           <p>To whoever loves automation: This is for you. Flowist's Filters and Sorting are stored via parameters in the URL. That means you can tailor which tasks are displayed, then copy the URL and jump into this view straight away.</p>
-          <p>Paste the url to your tasks tagged @deep into the timeblock in your calendar. Put a link into your project notes and start working with one click. Flowist allows you to skip the distraction and jump into your work, straight away.</p>
+          <p>Paste the url to your tasks tagged @deep into the timeblock in your calendar. Put a link into your project notes and start working with one click. Flowist allows you to skip the distraction and jump into your work, straight away. Read more in the <a href="man in a white shirt holding a phone displaying the Flowist actions">documentation</a>.</p>
 
         </div>
       </div>
-      <img src="{{ landingpage.secondary3.img }}" class="lp-img secondary-image__3">
+      <div class="lp-img secondary-image__3">
+        {% image "https://github.com/selfire1/todoist-focus-mode/blob/main/imgs/secondary3-img.png?raw=true", "two screens with one running code and the other showing Todoist focus mode", "(min-width: 30em) 50vw, 100vw" %}
+      </div>
     </div>
   </div>
 </div>
+<footer class="lp-footer">
+  <nav aria-label="external">
+    <ul role="list" class="navigation">
+      <li class="li-home">
+        <a href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd"/>
+          </svg>
+
+            Home</a>
+      </li>
+      <li>
+        <a href="https://github.com/selfire1/todoist-focus-mode/tree/main#documentation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+          </svg>
+
+            Help</a>
+      </li>
+      <li>
+        <a href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+          </svg>
+            About</a>
+      </li>
+    </ul>
+  </nav>
+  <p class="heart">Created with <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+    </svg>
+ by <a class="j-link" href="https://joschua.io/">Joschua</a>.</p>
+  <p>This application is not created by, affiliated with, or supported by Doist.</p>
+</footer>
