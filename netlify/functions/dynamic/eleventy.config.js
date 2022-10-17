@@ -1,3 +1,4 @@
+const faviconPlugin = require("eleventy-favicon");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const Image = require("@11ty/eleventy-img");
@@ -104,6 +105,7 @@ module.exports = function (eleventyConfig) {
 
     // Plugins
     eleventyConfig.addPlugin(EleventyRenderPlugin);
+    eleventyConfig.addPlugin(faviconPlugin);
     eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
         name: "dynamic",
         functionsDir: "./netlify/functions/"
