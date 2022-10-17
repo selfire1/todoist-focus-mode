@@ -52,7 +52,7 @@ title: "Todoist Focus Mode"
     </div>
     <div class="secondary-container sec-container__1">
       <div class="secondary-container-text sec-container-text__1">
-        <h2>{{landingpage.secondary1.heading}}</h2>
+        <h2 class="secondary-heading">{{landingpage.secondary1.heading}}</h2>
         <div class="flex-col-small | secondary-subtitle sec-subtitle__1">
           <p>Our brains are not made for todo-lists. When we see a list of tasks that is long and diverse, the planning apparatus of our brain locks up. It can't deal with these 10 or 15 things that have to be done. So it freezes. No motivation is generated, nothing gets done and procrastination kicks in.</p>
           <p>Flowist is a companion for Todoist. It pulls in the tasks and lets you focus. On only one task. One thing, right there in front of you. Our brains can handle that. Skip the overwhelm, find flow.</p>
@@ -65,17 +65,19 @@ title: "Todoist Focus Mode"
 
     <div class="secondary-container sec-container__2">
       <div class="secondary-container-text sec-container-text__2">
-        <h2>{{landingpage.secondary2.heading}}</h2>
+        <h2 class="secondary-heading">{{landingpage.secondary2.heading}}</h2>
         <div class="flex-col-small | secondary-subtitle sec-subtitle__2">
           <p> Flowist supports every <a href="https://todoist.com/help/articles/introduction-to-filters">Todoist filter</a> out of the box. Want to focus only on tasks in your Work project? Only want to hone in on todos tagged @deep? Ready to tackle all those jobs that are overdue or scheduled for today but not in the "Routines" project? Flowist got you.</p>
           <p>To make sure you get started on your most important task first, Flowist supports sorting. You can sort your todos by priority, due date or project. And of course, Filters and Sorting combines to make sure you tackle your top task first. You can learn more about Filters and Sorting in the <a href="https://github.com/selfire1/todoist-focus-mode/tree/main#documentation">documentation</a> on GitHub.</p>
         </div>
       </div>
-      <img src="{{ landingpage.secondary3.img }}" class="lp-img secondary-image__3">
+      <div class="lp-img secondary-image__2">
+        {% image "https://github.com/selfire1/todoist-focus-mode/blob/main/imgs/secondary2-img.png?raw=true", "two screens, the one to the left running Flowist with a task called Weekly Reflection", "(min-width: 30em) 50vw, 100vw" %}
+      </div>
     </div>
     <div class="secondary-container sec-container__3">
       <div class="secondary-container-text sec-container-text__3">
-        <h2>{{landingpage.secondary3.heading}}</h2>
+        <h2 class="secondary-heading">{{landingpage.secondary3.heading}}</h2>
         <div class="flex-col-small | secondary-subtitle sec-subtitle__3">
           <p>To whoever loves automation: This is for you. Flowist's Filters and Sorting are stored via parameters in the URL. That means you can tailor which tasks are displayed, then copy the URL and jump into this view straight away.</p>
           <p>Paste the url to your tasks tagged @deep into the timeblock in your calendar. Put a link into your project notes and start working with one click. Flowist allows you to skip the distraction and jump into your work, straight away.</p>
