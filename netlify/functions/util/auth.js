@@ -1,6 +1,6 @@
 const { AuthorizationCode } = require('simple-oauth2');
 const cookie = require("cookie");
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 // Warning: process.env.DEPLOY_PRIME_URL won’t work in a Netlify function here.
 const SITE_URL = process.env.URL || 'http://localhost:8888';
@@ -75,11 +75,11 @@ class OAuth {
 
     console.log("[auth] getUser response status", response.status);
     if (response.status !== 200) {
-      throw new Error(`Error ${await response.text()}`)
+      throw new Error(`Error ${await response.text()}`);
     }
 
-    const data = await response.json()
-    return data
+    const data = await response.json();
+    return data;
   }
 }
 
@@ -97,7 +97,7 @@ function getCookie(name, value, expiration) {
     delete options.sameSite;
   }
 
-  return cookie.serialize(name, value, options)
+  return cookie.serialize(name, value, options);
 }
 
 function generateCsrfToken() {
