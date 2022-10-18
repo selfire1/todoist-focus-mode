@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
   const code = event.queryStringParameters.code;
 
   // state helps mitigate CSRF attacks & Restore the previous state of your app
-  const state = querystring.parse(event.queryStringParameters.state)
+  const state = querystring.parse(event.queryStringParameters.state);
 
   try {
     // console.log("[auth-callback] Cookies", event.headers.cookie);
@@ -66,8 +66,8 @@ exports.handler = async (event, context) => {
     }
 
   } catch (e) {
-    console.log("[auth-callback]", 'Access Token Error', e.message)
-    console.log("[auth-callback]", e)
+    console.log("[auth-callback]", 'Access Token Error', e.message);
+    console.log("[auth-callback]", e);
     return {
       statusCode: e.statusCode || 500,
       body: JSON.stringify({

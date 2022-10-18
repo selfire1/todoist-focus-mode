@@ -24,10 +24,10 @@ async function handler(event) {
   let projects;
   try {
     let oauth = new OAuth(provider);
-    console.log(event.queryStringParameters)
-    var link = "https://api.todoist.com/rest/v2/tasks"
+    console.log(event.queryStringParameters);
+    var link = "https://api.todoist.com/rest/v2/tasks";
     if (event.queryStringParameters.hasOwnProperty("filter")) {
-      link += `?filter=${encodeURIComponent(event.queryStringParameters.filter)}`
+      link += `?filter=${encodeURIComponent(event.queryStringParameters.filter)}`;
     }
     tasks = await oauth.getUser(authToken, link);
     projects = await oauth.getUser(authToken, "https://api.todoist.com/rest/v2/projects");

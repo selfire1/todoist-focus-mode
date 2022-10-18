@@ -10,7 +10,6 @@ secure:
   <div class="notify" id="notify"></div>
 
   {# Current task #}
-  {% set svgFill = "#707070" %}
   <div class="task-container">
     <div class="task-context">
       <div class="flex-c__row-center-xsmall | project-container">
@@ -119,19 +118,6 @@ Enter a filter to display matching tasks. <a href="https://todoist.com/help/arti
     </div>
   </div>
 </div>
-{# {% if user %}
-    {% set id = eleventy.serverless.query.id | int %}
-    <p>Your next task</p>
-    {{ tasks[id].content | markdownify | safe }}
-    <a href="/secure/?id={{id - 1}}">Previous</a>
-    <a href="/secure/?id={{id + 1}}">Next</a>
-
-    <!-- Show Logout form -->
-    <hr>
-{% else %}
-    <!-- Show Login form -->
-    <a href="/">Login</a>
-{% endif %} #}
 
 {# Hidden input #}
 <input id="token" type="hidden" name="securePath" value="{{token}}" data-params="{{ eleventy.serverless.query | dump }}" data-tasks="{{ tasks | customSort(eleventy.serverless.query.sort) | dump }}" data-projects="{{ projects | dump }}">
