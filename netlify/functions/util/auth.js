@@ -87,7 +87,7 @@ function getCookie(name, value, expiration) {
   let options = {
     httpOnly: true,
     secure: true,
-    sameSite: "none",
+    sameSite: 'none',
     path: '/',
     maxAge: expiration,
   };
