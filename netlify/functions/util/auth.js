@@ -86,8 +86,8 @@ class OAuth {
 function getCookie(name, value, expiration) {
   let options = {
     httpOnly: true,
-    secure: false,
-    sameSite: "Lax",
+    secure: true,
+    sameSite: "none",
     path: '/',
     maxAge: expiration,
   };
