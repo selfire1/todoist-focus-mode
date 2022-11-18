@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 
 // Warning: process.env.DEPLOY_PRIME_URL won’t work in a Netlify function here.
 const SITE_URL = process.env.URL || 'http://localhost:8888';
+console.log(SITE_URL);
 
 const providers = require('./providers.js');
 
