@@ -209,6 +209,12 @@ strong {
     }
 }
 
+@media screen and (max-width: 40rem) {
+    .secondary-image__2 {
+        order: 2
+    }
+}
+
 .current-task {
     font-size: var(--fs-800);
     font-weight: var(--fw-500);
@@ -545,11 +551,15 @@ button:active:not(:disabled),
 }
 
 .quote-container {
-    font-size: var(--fs-450);
+    font-size: var(--fs-425);
     margin-top: var(--spacing-large);
     margin-bottom: var(--spacing-xxlarge);
     max-width: 25rem;
     margin-inline: auto;
+}
+
+.semibold {
+    font-weight: var(--fw-500);
 }
 
 .quote-caption {
@@ -600,9 +610,6 @@ button:active:not(:disabled),
     line-height: 1.2;
 }
 
-.secondary-image__2 {
-    order: 2
-}
 
 .secondary-subtitle {
     color: var(--clr-content-secondary);
