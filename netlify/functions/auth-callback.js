@@ -16,7 +16,7 @@ exports.handler = async (event) => {
   }
 
   // Grant the grant code
-  const { code } = event.queryStringParameters;
+  const code = event.queryStringParameters.code;
 
   // state helps mitigate CSRF attacks & Restore the previous state of your app
   const state = querystring.parse(event.queryStringParameters.state);
@@ -30,7 +30,7 @@ exports.handler = async (event) => {
     }
 
     const oauth = new OAuth(state.provider);
-    const { config } = oauth.config;
+    const config = oauth.config;
 
     // Take the grant code and exchange for an accessToken
     const accessToken = await oauth.authorizationCode.getToken({

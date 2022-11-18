@@ -14,7 +14,7 @@ exports.handler = async (event) => {
   }
 
   const csrfToken = generateCsrfToken();
-  const { provider } = event.queryStringParameters;
+  const provider = event.queryStringParameters.provider;
 
   const oauth = new OAuth(provider);
   let config = oauth.config;
