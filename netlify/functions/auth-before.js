@@ -17,7 +17,7 @@ exports.handler = async (event) => {
   const { provider } = event.queryStringParameters;
 
   const oauth = new OAuth(provider);
-  const { config } = oauth;
+  let config = oauth.config;
 
   // eslint-disable-next-line max-len
   const redirectUrl = (new URL(event.queryStringParameters.securePath, config.secureHost)).toString();
