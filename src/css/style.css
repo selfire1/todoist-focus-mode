@@ -186,6 +186,19 @@ strong {
 .task-project { }
 
 .btn-open-td { } */
+.app-container {
+    /* App specific variables */
+    --max-width: 65rem;
+    --spacing-medium: 12px;
+    --spacing-large: 16px;
+    --spacing-xlarge: 24px;
+    --spacing-xxlarge: 32px;
+    --spacing-xxxlarge: 7rem;
+
+    --padding: var(--spacing-xlarge);
+    width: min(var(--max-width), 100% - (var(--padding) * 2));
+    margin-inline: auto;
+}
 
 .task-container {
     margin-bottom: var(--spacing-xlarge);
@@ -194,7 +207,7 @@ strong {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
-    min-height: calc(100vh - 1.2rem);
+    min-height: calc(100vh - 3.2rem);
 }
 
 /* For medium and large screens */
