@@ -48,14 +48,14 @@ async function taskDone(taskId, apiKey) {
     if (response.ok) {
         console.log('Completed task');
         window.tasks.splice(window.index, 1);
-        window.index--;
+        window.index -= 1;
         renderTask();
     } else {
         alert(`HTTP-Error: ${response.status}`);
     }
 }
 // Keypress navigation
-document.onkeydown = function (e) {
+document.onkeydown = function keyMove(e) {
     switch (e.keyCode) {
         case 229:
             break;
@@ -65,7 +65,6 @@ document.onkeydown = function (e) {
                 break;
             }
             btnCounter(window.tasks, false);
-            const btnPrev = document.getElementById('btn-prev');
             btnPrev.classList.add('hover');
             setTimeout(() => { btnPrev.classList.remove('hover'); }, 100);
             break;
@@ -75,7 +74,6 @@ document.onkeydown = function (e) {
                 break;
             }
             btnCounter(window.tasks);
-            const btnNext = document.getElementById('btn-next');
             btnNext.classList.add('hover');
             setTimeout(() => { btnNext.classList.remove('hover'); }, 100);
             break;
@@ -87,9 +85,9 @@ document.onkeydown = function (e) {
 // Button Counter
 function btnCounter(tasks, increase = true) {
     if (increase) {
-        window.index++;
+        window.index += 1;
     } else {
-        window.index--;
+        window.index -= 1;
     }
     renderTask();
     if (window.index <= 0) {
@@ -140,25 +138,27 @@ function notify(str) {
 function fade(element) {
     let op = 1; // initial opacity
     const timer = setInterval(() => {
+        const el = element;
         if (op <= 0.1) {
             clearInterval(timer);
-            element.style.display = 'none';
+            el.style.display = 'none';
         }
-        element.style.opacity = op;
-        element.style.filter = `alpha(opacity=${op * 100})`;
+        el.style.opacity = op;
+        el.style.filter = `alpha(opacity=${op * 100})`;
         op -= op * 0.1;
     }, 50);
 }
 // Fade in element
 function unfade(element) {
     let op = 0.1; // initial opacity
-    element.style.display = 'block';
+    const el = element;
+    el.style.display = 'block';
     const timer = setInterval(() => {
         if (op >= 1) {
             clearInterval(timer);
         }
-        element.style.opacity = op;
-        element.style.filter = `alpha(opacity=${op * 100})`;
+        el.style.opacity = op;
+        el.style.filter = `alpha(opacity=${op * 100})`;
         op += op * 0.15;
     }, 10);
 }
@@ -171,9 +171,9 @@ function mdToHtmlElement(str) {
     return result;
 }
 
-function findProject(tasksProjectID, projects) {
-    const isProjectId = (element) => element.id == tasksProjectID;
-    const projectIndex = projects.findIndex(isProjectId);
+function findProject(tasksProjectID, projectName) {
+    const isProjectId = (element) => element.id === tasksProjectID;
+    const projectIndex = projectName.findIndex(isProjectId);
     return projects[projectIndex].name;
 }
 
