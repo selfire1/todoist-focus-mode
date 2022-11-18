@@ -413,6 +413,7 @@ button.btn-logout {
     justify-content: center;
     gap: var(--spacing-medium);
     margin: 0;
+    padding: 0;
     padding-bottom: var(--spacing-medium);
 }
 
