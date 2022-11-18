@@ -19,6 +19,7 @@ exports.handler = async (event) => {
   const oauth = new OAuth(provider);
   const { config } = oauth;
 
+  // eslint-disable-next-line max-len
   const redirectUrl = (new URL(event.queryStringParameters.securePath, config.secureHost)).toString();
 
   /* Generate authorizationURI */

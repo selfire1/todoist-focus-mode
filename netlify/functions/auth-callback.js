@@ -24,6 +24,7 @@ exports.handler = async (event) => {
   try {
     // console.log("[auth-callback] Cookies", event.headers.cookie);
     const cookies = cookie.parse(event.headers.cookie);
+    // eslint-disable-next-line no-underscore-dangle
     if (cookies._11ty_oauth_csrf !== state.csrf) {
       throw new Error('Missing or invalid CSRF token.');
     }
