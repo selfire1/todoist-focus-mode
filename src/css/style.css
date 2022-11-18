@@ -76,7 +76,7 @@ select {
 /* ---- END RESET ---- */
 /* Variables */
 :root {
-    --max-width: 65rem;
+    --max-width: 60rem;
 
     --clr-content-tertiary: #999999;
     --clr-content-secondary: #707070;
@@ -93,11 +93,11 @@ select {
 
     --spacing-xsmall: 4px;
     --spacing-small: 8px;
-    --spacing-medium: 12px;
-    --spacing-large: 16px;
-    --spacing-xlarge: 24px;
-    --spacing-xxlarge: 32px;
-    --spacing-xxxlarge: 7rem;
+    --spacing-medium: 1.125rem;
+    --spacing-large: 1.5rem;
+    --spacing-xlarge: 1.75rem;
+    --spacing-xxlarge: 6rem;
+    --spacing-xxxlarge: 9rem;
 
     --border-radius-small: 5px;
     --border-radius-large: 10px;
@@ -196,8 +196,12 @@ strong {
     min-height: calc(100vh - 3.2rem);
 }
 
-/* For large screens */
+/* For medium and large screens */
 @media screen and (min-width: 48rem) {
+    .home-container {
+        --spacing-xxxlarge: 12rem;
+    }
+
     .task-container {
         gap: var(--spacing-xlarge);
         min-height: calc(100vh - var(--spacing-large));
@@ -477,6 +481,7 @@ button:active:not(:disabled),
 
 /* Main container */
 .home-container {
+    padding-top: var(--spacing-xxlarge);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xxxlarge);
@@ -493,7 +498,7 @@ button:active:not(:disabled),
 
 .primary-container {
     display: grid;
-    gap: var(--spacing-xlarge);
+    gap: var(--spacing-xxlarge);
     grid-template-columns:
         repeat(auto-fit, minmax(15rem, 1fr));
 }
@@ -512,18 +517,20 @@ button:active:not(:disabled),
 
 .disclaimer {
     color: var(--clr-content-tertiary);
-    font-style: italic;
     margin-top: auto;
     font-size: var(--fs-200);
 }
 
 .primary-subtitle {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
     font-size: var(--fs-425);
     color: var(--clr-content-secondary);
 }
 
 .cta-btn {
-    margin-top: var(--spacing-large);
+    margin-top: var(--spacing-medium);
     padding: var(--spacing-xsmall);
     font-size: var(--fs-300);
     min-width: 9rem;
@@ -567,7 +574,7 @@ button:active:not(:disabled),
 
 .secondary-container {
     display: grid;
-    gap: var(--spacing-xlarge);
+    gap: var(--spacing-xxlarge);
     grid-template-columns:
         repeat(auto-fit, minmax(15rem, 1fr));
 }
@@ -591,6 +598,10 @@ button:active:not(:disabled),
     font-weight: var(--fw-500);
     font-size: var(--fs-500);
     line-height: 1.2;
+}
+
+.secondary-image__2 {
+    order: 2
 }
 
 .secondary-subtitle {
