@@ -96,8 +96,9 @@ select {
     --spacing-medium: 1.125rem;
     --spacing-large: 1.5rem;
     --spacing-xlarge: 1.75rem;
-    --spacing-xxlarge: 6rem;
-    --spacing-xxxlarge: 9rem;
+    --spacing-xxlarge: 32px;
+    --spacing-xxxlarge: 6rem;
+    --spacing-huge: 9rem;
 
     --border-radius-small: 5px;
     --border-radius-large: 10px;
@@ -193,13 +194,13 @@ strong {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);
-    min-height: calc(100vh - 3.2rem);
+    min-height: calc(100vh - 1.2rem);
 }
 
 /* For medium and large screens */
 @media screen and (min-width: 48rem) {
     .home-container {
-        --spacing-xxxlarge: 12rem;
+        --spacing-huge: 12rem;
     }
 
     .task-container {
@@ -488,10 +489,10 @@ button:active:not(:disabled),
 
 /* Main container */
 .home-container {
-    padding-top: var(--spacing-xxlarge);
+    padding-top: var(--spacing-xxxlarge);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xxxlarge);
+    gap: var(--spacing-huge);
 }
 
 /* Containers */
@@ -505,7 +506,7 @@ button:active:not(:disabled),
 
 .primary-container {
     display: grid;
-    gap: var(--spacing-xxlarge);
+    gap: var(--spacing-huge);
     grid-template-columns:
         repeat(auto-fit, minmax(15rem, 1fr));
 }
@@ -554,7 +555,7 @@ button:active:not(:disabled),
 .quote-container {
     font-size: var(--fs-425);
     margin-top: var(--spacing-large);
-    margin-bottom: var(--spacing-xxlarge);
+    margin-bottom: var(--spacing-xlarge);
     max-width: 25rem;
     margin-inline: auto;
 }
@@ -585,7 +586,7 @@ button:active:not(:disabled),
 
 .secondary-container {
     display: grid;
-    gap: var(--spacing-xxlarge);
+    gap: var(--spacing-xxxlarge);
     grid-template-columns:
         repeat(auto-fit, minmax(15rem, 1fr));
 }
@@ -617,7 +618,7 @@ button:active:not(:disabled),
 }
 
 .lp-footer {
-    margin-top: calc(var(--spacing-xxxlarge)*2);
+    margin-top: calc(var(--spacing-huge)*2);
     background-color: var(--clr-bg-aside);
     padding: var(--spacing-xlarge);
     display: flex;
