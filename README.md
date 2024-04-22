@@ -1,9 +1,9 @@
-[![flowist. — Focus Mode for Todoist](https://raw.githubusercontent.com//selfire1/todoist-focus-mode/main/imgs/banner-mobile.png)](https://flowist.netlify.app)
+[![flowist. — Focus Mode for Todoist](https://raw.githubusercontent.com//selfire1/todoist-focus-mode/main/imgs/banner-mobile.png)](https://flowist.joschua.io)
 
 <div align="center">
 Flowist is your Focus Mode companion for Todoist.
 
-**[Get Started](https://flowist.netlify.app/)**
+**[Get Started](https://flowist.joschua.io/)**
 
 _This application is not created by, affiliated with, or supported by Doist._
 
@@ -24,7 +24,7 @@ Instead of a long diverse list, Flowist cuts out the noise and helps you focus o
 
 Flowist is free and open source. It was built as a solution to a problem I faced and I hope it helps you too. Simply log in with Todoist and get focused.
 
-**[Open Flowist](https://flowist.netlify.app/)**
+**[Open Flowist](https://flowist.joschua.io/)**
 
 ---
 
@@ -38,19 +38,19 @@ Enter a valid [Todoist filter](https://todoist.com/help/articles/introduction-to
 
 ### Sorting
 
-Sort tasks by due date, project or priority through url parameters. The schema is: `https://flowist.netlify.app/secure/?sort=[due|proj|prio]:[asc|desc]`.
+Sort tasks by due date, project or priority through url parameters. The schema is: `https://flowist.joschua.io/secure/?sort=[due|proj|prio]:[asc|desc]`.
 
-- Sort all tasks by priority descending (from p1 to p4):`https://flowist.netlify.app/secure/?sort=prio:desc`
-- Sort all tasks by due date ascending (earliest due date first): `https://flowist.netlify.app/secure/?sort=due:asc`
-- Sorting by multiple values is supported. Sort first by priority, on equal priority sort by projects: `https://flowist.netlify.app/secure/?sort=p1:desc,proj:asc`
+- Sort all tasks by priority descending (from p1 to p4):`https://flowist.joschua.io/secure/?sort=prio:desc`
+- Sort all tasks by due date ascending (earliest due date first): `https://flowist.joschua.io/secure/?sort=due:asc`
+- Sorting by multiple values is supported. Sort first by priority, on equal priority sort by projects: `https://flowist.joschua.io/secure/?sort=p1:desc,proj:asc`
 
 ### URL scheme
 
 Both filters and sort preferences are stored in the URL. This allows you to combine sorting a filters in a powerful way. Note that all parameters need to be url encoded.
 
-- Show me all tasks due today or overdue, sorted from the highest priority down: `https://flowist.netlify.app/secure/?filter=today%7Coverdue&sort=prio:desc` (`%7` is the encoding for `|` which stands for "or" in Todoist Filters)
-- Display tasks in Inbox, with the most overdue items first: `https://flowist.netlify.app/secure/?filter=Inbox&sort=due:desc`
-- Show me tasks tagged "phone", sorted by priority and then by project: `https://flowist.netlify.app/secure/?filter=%40phone&sort=prio:asc,proj:desc`
+- Show me all tasks due today or overdue, sorted from the highest priority down: `https://flowist.joschua.io/secure/?filter=today%7Coverdue&sort=prio:desc` (`%7` is the encoding for `|` which stands for "or" in Todoist Filters)
+- Display tasks in Inbox, with the most overdue items first: `https://flowist.joschua.io/secure/?filter=Inbox&sort=due:desc`
+- Show me tasks tagged "phone", sorted by priority and then by project: `https://flowist.joschua.io/secure/?filter=%40phone&sort=prio:asc,proj:desc`
 
 This URL scheme allows for some impactful automations. In your note for a project, put a Flowist link. Whenever you're working on it, jump straight into Focus Mode.
 
