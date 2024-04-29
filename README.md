@@ -3,7 +3,7 @@
 <div align="center">
 Flowist is your Focus Mode companion for Todoist.
 
-**[Get Started](https://flowist.joschua.io/)**
+**[Get Started](https://flowist.joschua.io?utm_source=github&utm_medium=readme)**
 
 _This application is not created by, affiliated with, or supported by Doist._
 
@@ -24,7 +24,7 @@ Instead of a long diverse list, Flowist cuts out the noise and helps you focus o
 
 Flowist is free and open source. It was built as a solution to a problem I faced and I hope it helps you too. Simply log in with Todoist and get focused.
 
-**[Open Flowist](https://flowist.joschua.io/)**
+**[Open Flowist](https://flowist.joschua.io?utm_source=github&utm_medium=readme)**
 
 ---
 
