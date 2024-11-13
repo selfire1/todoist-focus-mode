@@ -66,25 +66,34 @@ The issues are also the place for feature requests. Since Flowist is an opiniona
 
 To contribute to Flowist, follow these steps:
 
-### 1. Set up a Todoist app
+### 1. Use our npm version
+
+[nvm](https://github.com/nvm-sh/nvm) is recommended to manage node versions.
+
+```bash
+nvm install
+nvm use
+```
+
+### 2. Set up a Todoist app
 
 - Go to [Todoist Developer Console](https://developer.todoist.com/appconsole.html) and create a new app.
 - Note down your `TODOIST_OAUTH_CLIENT_ID` and `TODOIST_OAUTH_CLIENT_SECRET`.
 
-### 2. Environment variables
+### 3. Environment variables
 
 - Create a `.env` file in the root of your project.
 - See the `.env.example` file for required values. Replace the placeholders with your actual credentials.
 
-### 3. Install dependencies
+### 4. Install dependencies
 
-- Make sure to have [bun](https://bun.sh/) installed (Check via `bun -v`).
+- Make sure to have [bun](https://bun.sh/) installed (Check via `bun -v`) to our nvm environment.
 - Install dependencies:
   ```bash
   bun install
   ```
 
-### 4. Local development
+### 5. Local development
 
 - Start the development server:
   ```bash
