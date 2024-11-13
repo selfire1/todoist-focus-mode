@@ -37,7 +37,8 @@ export default defineNuxtConfig({
   },
 
   gtm: {
-    id: process.env.GTM_ID as string,
+    enabled: !!process.env.GTM_ID,
+    id: process.env.GTM_ID ?? "GTM-XXXXXX",
   },
 
   app: {
