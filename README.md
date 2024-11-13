@@ -100,6 +100,10 @@ nvm use
   bun run dev
   ```
 
+### Conventions
+
+This repository follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Please mark your changes with the appropriate type.
+
 ### See also
 
 - [Nuxt](https://nuxt.com/), the framework used in Flowist
