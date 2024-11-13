@@ -1,0 +1,60 @@
+@layer components {
+  .is-display-1,
+  .is-size-1 {
+    @apply fl-text-step-5;
+    line-height: 1.1;
+  }
+
+  .is-display-2,
+  .is-size-2 {
+    @apply fl-text-step-4;
+    line-height: 1.1;
+  }
+
+  .is-display-3,
+  .is-size-3 {
+    @apply fl-text-step-3;
+    line-height: 1.1;
+  }
+
+  .is-display-4,
+  .is-size-4 {
+    @apply fl-text-step-2;
+    line-height: 1.2;
+  }
+
+  .is-display-5,
+  .is-size-5 {
+    @apply fl-text-step-1;
+    line-height: 1.1;
+  }
+
+  .is-display-6,
+  .is-size-6 {
+    @apply fl-text-step-0;
+  }
+  .is-display-7,
+  .is-size-7 {
+    @apply fl-text-step--1;
+  }
+
+  .is-display-8,
+  .is-size-8 {
+    @apply fl-text-step--2;
+  }
+
+  .is-display-1,
+  .is-display-2,
+  .is-display-3,
+  .is-display-4,
+  .is-display-5,
+  .is-display-6,
+  .is-display-7,
+  .is-display-8 {
+    @apply font-semibold;
+  }
+
+  .is-uppercase {
+    @apply uppercase tracking-wide;
+  }
+}

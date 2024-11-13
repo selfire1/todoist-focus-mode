@@ -1,0 +1,161 @@
+@import "./type.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html:has(dialog[open]) .is-dialog-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@layer utilities {
+  .is-text-primary {
+    @apply text-primary dark:text-neutral-300;
+  }
+  .is-text-secondary {
+    @apply text-muted-400 dark:text-neutral-400;
+  }
+  .is-text-prose {
+    @apply text-muted-400 dark:text-neutral-400;
+  }
+  .is-text-tertiary {
+    @apply text-muted-300;
+  }
+
+  .is-disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+}
+
+html {
+  @apply text-primary dark:text-neutral-300;
+}
+
+@layer components {
+  .is-section-1 {
+    @apply fl-py-xl fl-space-y-3xl;
+  }
+  .is-section-2 {
+    @apply fl-space-y-xl;
+  }
+
+  .is-section-3 {
+    @apply fl-space-y-m;
+  }
+
+  .is-section-4 {
+    @apply fl-space-y-xs;
+  }
+
+  .is-section-text-6 {
+    @apply space-y-[1rem];
+  }
+  .is-section-text-7 {
+    @apply space-y-[.5rem];
+  }
+  .is-section-text-8 {
+    @apply space-y-[.25rem];
+  }
+
+  .is-grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+
+  .is-button:active:not(:disabled),
+  .hover {
+    transform: scale(0.97);
+  }
+
+  .is-button {
+    @apply transition-all rounded no-underline inline-flex cursor-pointer items-center justify-center font-medium;
+    min-width: 3rem;
+    @apply py-2 fl-px-xs;
+    display: inline-flex;
+
+    &:disabled,
+    &[data-disabled="true"] {
+      @apply is-disabled;
+    }
+
+    &.is-primary {
+      @apply bg-accent text-on-accent gap-1 font-medium;
+      @apply hover:bg-accent-500;
+    }
+
+    &.is-muted {
+      @apply bg-muted-100/25 text-muted-500;
+      @apply hover:bg-muted-100/50 hover:text-primary;
+
+      @apply dark:bg-neutral-800 dark:text-neutral-300;
+      @apply hover:dark:bg-neutral-900 hover:dark:text-neutral-100;
+    }
+  }
+
+  .spinner {
+    animation: rotate 2s linear infinite;
+    @apply size-4;
+
+    & .path {
+      stroke-linecap: round;
+      animation: dash 2.5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+
+  .is-prose {
+    @apply space-y-2;
+    a {
+      @apply underline;
+      text-underline-position: under;
+      text-decoration-thickness: from-font;
+      @apply decoration-neutral-400;
+      @apply hover:text-primary;
+    }
+
+    h1 {
+      @apply is-display-4 pt-2;
+    }
+    h2 {
+      @apply is-display-5 pt-2;
+    }
+    ul {
+      @apply list-disc list-inside marker:is-text-tertiary;
+    }
+    ol {
+      @apply list-decimal list-inside marker:is-text-tertiary;
+    }
+    blockquote {
+      @apply border-l-2 border-muted-300 pl-4 italic;
+    }
+  }
+}

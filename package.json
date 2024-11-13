@@ -1,37 +1,49 @@
 {
-  "name": "todoist-focus-mode",
-  "version": "1.0.0",
-  "description": "",
+  "name": "nuxt-app",
+  "version": "1.1.1",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve --port=8081 --watch",
-    "dev": "netlify dev"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/selfire1/todoist-focus-mode.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/selfire1/todoist-focus-mode/issues"
-  },
-  "homepage": "https://github.com/selfire1/todoist-focus-mode#readme",
-  "devDependencies": {
-    "eslint": "^8.27.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "netlify-cli": "^12.0.11"
+    "build": "bun run test && nuxt build",
+    "test:dev": "vitest",
+    "test": "vitest run",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "www:prod": "open 'https://app.netlify.com/sites/flowist/deploys'",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
-    "@11ty/eleventy-img": "^2.0.1",
-    "@netlify/functions": "^1.2.0",
-    "cookie": "^0.4.1",
-    "dotenv": "^10.0.0",
-    "eleventy-favicon": "^1.1.3",
-    "node-fetch": "^2.3.0",
-    "simple-oauth2": "^4.2.0"
+    "@iconify-json/heroicons": "^1.1.21",
+    "@nuxt/icon": "latest",
+    "@nuxtjs/tailwindcss": "latest",
+    "@primevue/nuxt-module": "^4.0.0-beta.5",
+    "@primevue/themes": "^4.0.0-beta.5",
+    "@types/markdown-it": "^14.0.0",
+    "markdown-it": "^14.1.0",
+    "nuxt": "^3.11.2",
+    "nuxt-auth-utils": "latest",
+    "primevue": "4.0.0-rc.2",
+    "pug": "^3.0.2",
+    "simple-oauth2": "^5.0.0",
+    "tailwind-utopia": "cwsdigital/tailwind-utopia",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/image": "latest",
+    "@nuxt/test-utils": "^3.13.1",
+    "@types/cookie": "^0.6.0",
+    "@types/simple-oauth2": "^5.0.7",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vue/language-plugin-pug": "^2.0.6",
+    "@vue/test-utils": "^2.4.6",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "happy-dom": "^14.12.3",
+    "playwright-core": "^1.44.1",
+    "typescript": "^5.4.2",
+    "vitest": "^1.6.0"
   }
 }

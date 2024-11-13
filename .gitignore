@@ -1,23 +1,27 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
 # Logs
 logs
 *.log
-npm-debug.log*
-
-# Dependencies
-**/node_modules/**
-package-lock.json
-
-# Eleventy
-_site/
 
 # Misc
 .DS_Store
-.env
-.cache
+.fleet
+.idea
 
-# Local Netlify folder
-netlify/functions/dynamic/**
-!netlify/functions/dynamic/index.js
+# Local env files
+.env
+.env.*
+!.env.example
 
 # Local Netlify folder
 .netlify
