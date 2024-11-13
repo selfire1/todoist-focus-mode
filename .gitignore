@@ -5,6 +5,9 @@
 .nitro
 .cache
 dist
+netlify
+_site
+package-lock.json
 
 # Node dependencies
 node_modules
