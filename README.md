@@ -1,4 +1,4 @@
-[![flowist. — Focus Mode for Todoist](https://raw.githubusercontent.com//selfire1/todoist-focus-mode/main/imgs/banner-mobile.png)](https://flowist.joschua.io)
+[![flowist. — Focus Mode for Todoist](https://github.com/selfire1/todoist-focus-mode/blob/main/src/public/imgs/banner-mobile.png?raw=true)](https://flowist.joschua.io)
 
 <div align="center">
 Flowist is your Focus Mode companion for Todoist.
