@@ -61,3 +61,38 @@ If you encounter any bugs, feel free to mention them in this project's [issues](
 The issues are also the place for feature requests. Since Flowist is an opinionated tool designed to be simple, some features may not be compatible.
 
 🐦 Stay up to date with development on [Twitter](https://twitter.com/selfire1)
+
+## Development
+
+To contribute to Flowist, follow these steps:
+
+### 1. Set up a Todoist app
+
+- Go to [Todoist Developer Console](https://developer.todoist.com/appconsole.html) and create a new app.
+- Note down your `TODOIST_OAUTH_CLIENT_ID` and `TODOIST_OAUTH_CLIENT_SECRET`.
+
+### 2. Environment variables
+
+- Create a `.env` file in the root of your project.
+- See the `.env.example` file for required values. Replace the placeholders with your actual credentials.
+
+### 3. Install dependencies
+
+- Make sure to have [bun](https://bun.sh/) installed (Check via `bun -v`).
+- Install dependencies:
+  ```bash
+  bun install
+  ```
+
+### 4. Local development
+
+- Start the development server:
+  ```bash
+  bun run dev
+  ```
+
+### See also
+
+- [Nuxt](https://nuxt.com/), the framework used in Flowist
+- [Nuxt Auth Utils](https://github.com/atinux/nuxt-auth-utils), utilities for Authentification
+- [Todoist Developer Documentation](https://developer.todoist.com/guides/#developing-with-todoist)
