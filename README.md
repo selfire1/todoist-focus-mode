@@ -79,6 +79,7 @@ nvm use
 
 - Go to [Todoist Developer Console](https://developer.todoist.com/appconsole.html) and create a new app.
 - Note down your `TODOIST_OAUTH_CLIENT_ID` and `TODOIST_OAUTH_CLIENT_SECRET`.
+- Set the **OAuth redirect URL** to `http://localhost:3000/api/auth/todoist` (or the equivalent with your development url).
 
 ### 3. Environment variables
 
