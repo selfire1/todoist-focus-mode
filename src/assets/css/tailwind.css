@@ -139,7 +139,7 @@ html {
       text-underline-position: under;
       text-decoration-thickness: from-font;
       @apply decoration-neutral-400;
-      @apply hover:text-primary;
+      @apply hover:text-primary dark:hover:text-neutral-200;
     }
 
     h1 {
