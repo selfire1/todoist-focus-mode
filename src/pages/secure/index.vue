@@ -104,7 +104,7 @@ const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://a
     filter: fetchFilter,
   },
   onResponse({ response }) {
-    if (process.dev) {
+    if (import.meta.dev) {
       console.log('API Response:', {
         status: response.status,
         taskCount: response._data?.length,
