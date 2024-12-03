@@ -130,7 +130,7 @@ const tasks = computed(() => {
   return customSort(fetchedTasks.value || [], sortQuery.value);
 });
 
-if (process.dev) {
+if (import.meta.dev) {
   watch(tasks, (newTasks) => {
     console.log('Tasks updated:', {
       taskCount: newTasks?.length,
