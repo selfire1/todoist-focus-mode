@@ -116,7 +116,7 @@ const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://a
 
 const { customSort } = useTasks();
 const tasks = computed(() => {
-  if (process.dev) {
+  if (import.meta.dev) {
     console.log('Computing tasks:', {
       hasFetchedTasks: !!fetchedTasks.value,
       fetchedCount: fetchedTasks.value?.length,
