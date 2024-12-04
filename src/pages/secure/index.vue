@@ -103,15 +103,48 @@ const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://a
   query: {
     filter: fetchFilter,
   },
+  onResponse({ response }) {
+    if (import.meta.dev) {
+      console.log('API Response:', {
+        status: response.status,
+        taskCount: response._data?.length,
+        firstTask: response._data?.[0]
+      })
+    }
+  }
 })
 
 const { customSort } = useTasks();
 const tasks = computed(() => {
+  if (import.meta.dev) {
+    console.log('Computing tasks:', {
+      hasFetchedTasks: !!fetchedTasks.value,
+      fetchedCount: fetchedTasks.value?.length,
+      sortQuery: sortQuery.value
+    })
+  }
+
   if (!sortQuery.value) {
     return fetchedTasks.value;
   }
-  return customSort(fetchedTasks.value, sortQuery.value);
+  return customSort(fetchedTasks.value || [], sortQuery.value);
 });
+
+if (import.meta.dev) {
+  watch(tasks, (newTasks) => {
+    console.log('Tasks updated:', {
+      taskCount: newTasks?.length,
+      firstTask: newTasks?.[0]
+    })
+  })
+
+  watch(currentTaskText, (text) => {
+    console.log('Current task text:', {
+      hasText: !!text,
+      text: text?.slice(0, 50) // Show first 50 chars
+    })
+  })
+}
 
 const { data: projects } = useFetch<Project[]>("https://api.todoist.com/rest/v2/projects", {
   method: 'get',
@@ -524,7 +557,7 @@ div(:class="isUltraFocus ? 'is-ultrafocus' : ''")
                       .flex.items-center.gap-1
                         SvgFilter
                         h3.is-display-7 Filter
-                    p Enter a filter to display matching tasks. 
+                    p Enter a filter to display matching tasks.
                   .flex.items-center.fl-gap-3xs
                     input.border.border-muted-200.w-full.block.h-10.rounded.py-1.px-2#filter(minlength='2', type='text', name='filter' v-model="filterInput" placeholder="No filter")
                     button.bg-muted-200.text-white.is-button(type='submit' :disabled="taskPending" class="hover:bg-muted-300 dark:text-neutral-300 dark:bg-neutral-700 hover:dark:bg-neutral-800") {{ taskPending ? 'Loading...' : 'Open'}}
