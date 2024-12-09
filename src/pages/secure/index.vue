@@ -104,7 +104,7 @@ const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://a
     filter: fetchFilter,
   },
   onResponse({ response }) {
-    if (process.dev) {
+    if (import.meta.dev) {
       console.log('API Response:', {
         status: response.status,
         taskCount: response._data?.length,
@@ -116,7 +116,7 @@ const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://a
 
 const { customSort } = useTasks();
 const tasks = computed(() => {
-  if (process.dev) {
+  if (import.meta.dev) {
     console.log('Computing tasks:', {
       hasFetchedTasks: !!fetchedTasks.value,
       fetchedCount: fetchedTasks.value?.length,
@@ -130,7 +130,7 @@ const tasks = computed(() => {
   return customSort(fetchedTasks.value || [], sortQuery.value);
 });
 
-if (process.dev) {
+if (import.meta.dev) {
   watch(tasks, (newTasks) => {
     console.log('Tasks updated:', {
       taskCount: newTasks?.length,
