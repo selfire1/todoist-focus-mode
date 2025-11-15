@@ -505,7 +505,6 @@ div(:class="isUltraFocus ? 'is-ultrafocus' : ''")
             p.is-display-8 {{ isUltraFocus ? 'Enabled' : 'Disabled' }}
 
   UIContainer
-    DialogFeedback
     DebugUser
     #notify.notify
     .min-h-screen.fl-py-xs.flex.flex-col
