@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import markdownIt from "markdown-it";
-import type { Task, Project } from "~/types"
+import type { Task, Project, ApiResponse } from "~/types"
 
 const { loggedIn, user, session, clear } = useUserSession()
 
@@ -64,7 +64,7 @@ const currentProjectName = computed(() => {
   if (!tasks.value?.[i]) {
     return '';
   }
-  const project = findProject(tasks.value[i].project_id, projects.value ?? []);
+  const project = findProject(tasks.value[i].project_id, projects.value?.results ?? []);
   return project?.name ?? "";
 });
 
@@ -97,11 +97,18 @@ const headers = {
 
 const fetchFilter = ref(route.query?.filter as string || '');
 
-const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://api.todoist.com/rest/v2/tasks", {
+const apiUrl = computed(() => {
+if (fetchFilter.value.trim()) {
+return "https://api.todoist.com/api/v1/tasks/filter"
+}
+return "https://api.todoist.com/api/v1/tasks"
+})
+
+const { data: fetchedTasks, pending: taskPending } = useFetch<ApiResponse<Task>>(apiUrl, {
   method: 'get',
   headers,
   query: {
-    filter: fetchFilter,
+    query: fetchFilter,
   },
   onResponse({ response }) {
     if (import.meta.dev) {
@@ -115,19 +122,19 @@ const { data: fetchedTasks, pending: taskPending } = useFetch<Task[]>("https://a
 })
 
 const { customSort } = useTasks();
-const tasks = computed(() => {
+const tasks = computed((): Task[] => {
   if (import.meta.dev) {
     console.log('Computing tasks:', {
       hasFetchedTasks: !!fetchedTasks.value,
-      fetchedCount: fetchedTasks.value?.length,
+      fetchedCount: fetchedTasks.value?.results?.length,
       sortQuery: sortQuery.value
     })
   }
 
   if (!sortQuery.value) {
-    return fetchedTasks.value;
+    return fetchedTasks.value?.results ?? [];
   }
-  return customSort(fetchedTasks.value || [], sortQuery.value);
+  return customSort(fetchedTasks.value?.results || [], sortQuery.value);
 });
 
 if (import.meta.dev) {
@@ -146,7 +153,7 @@ if (import.meta.dev) {
   })
 }
 
-const { data: projects } = useFetch<Project[]>("https://api.todoist.com/rest/v2/projects", {
+const { data: projects } = useFetch<ApiResponse<Project>>("https://api.todoist.com/api/v1/projects", {
   method: 'get',
   headers
 })
@@ -208,7 +215,7 @@ async function taskDone(taskId: string) {
     pendingDone.value = false;
     return;
   }
-  const url = `https://api.todoist.com/rest/v2/tasks/${taskId}/close`;
+  const url = `https://api.todoist.com/api/v1/tasks/${taskId}/close`;
   const response = await fetch(url, {
     method: 'POST',
     headers,
@@ -346,9 +353,10 @@ function openTodoistHandler() {
     const url = `todoist://task?id=${current.id}`;
     window.open(url, 'todoist tab');
   } else {
-    window.open(current.url, 'todoist tab');
+    const url = `https://app.todoist.com/app/task/${current.id}`
+    window.open(url, 'todoist tab');
   }
-};
+}
 function notify(str: string) {
   if (!isMounted) {
     console.warn('Not mounted yet');

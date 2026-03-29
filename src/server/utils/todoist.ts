@@ -53,8 +53,8 @@ export function todoistEventHandler({
   return eventHandler(async (event: H3Event) => {
     // @ts-ignore
     config = defu(config, useRuntimeConfig(event).oauth?.todoist, {
-      authorizationURL: "https://todoist.com/oauth/authorize",
-      tokenURL: "https://todoist.com/oauth/access_token",
+      authorizationURL: "https://app.todoist.com/oauth/authorize",
+      tokenURL: "https://app.todoist.com/oauth/access_token",
     }) as OAuthTodoistConfig;
     const query = getQuery(event);
 

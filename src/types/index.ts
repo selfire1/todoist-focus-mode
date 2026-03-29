@@ -40,3 +40,8 @@ export type Project = {
   order: number;
   viewStyle: string;
 };
+
+export type ApiResponse<T> = {
+  next_cursor: null
+  results: T[]
+}
